@@ -1,0 +1,284 @@
+@charset "utf-8";
+
+  body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: url("http://localhost:8080/FloatingBalls/resources/images/background_1.jpg") no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif; /* Пример шрифта для всего текста на странице */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f2f5;
+    font-family: Arial, sans-serif;
+}
+
+.error{
+    color: red;
+}
+
+.success{
+    color: #00FF00;
+}
+
+/* Стиль для шапки сайта */
+
+header {
+    background-color: rgba(60, 60, 60, 0.8);
+    color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header .container-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-grow: 1;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #ddd;
+}
+
+.auth-links {
+    display: flex;
+    margin-left: auto;
+}
+
+.auth-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    margin-left: 20px;
+    border: 1px solid white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.auth-links a:hover {
+    background-color: white;
+    color: #333;
+}
+
+/* Дополнительные стили для оформления */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: #fff; /* Цвет текста */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Тень текста */
+}
+
+.content {
+    background: rgba(0, 0, 0, 0.5); /* Прозрачный черный фон */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Стиль для footer панли */
+
+.hidden-footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    position: fixed;
+    bottom: -80px; /* Initial position is hidden */
+    width: 100%;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    transition: bottom 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 0.5; /* Slightly transparent initially */
+}
+
+.hidden-footer:hover {
+    bottom: 0; /* Slide up into view */
+    opacity: 1; /* Fully opaque on hover */
+}
+
+.hidden-footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-section {
+    flex: 1;
+}
+
+.footer-section h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+#language-select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+/* Стиль для регистрации */
+
+ .register-container {
+    background-color: rgba(60, 60, 60, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    width: 300px;
+}
+
+ .register-container h2 {
+    margin-bottom: 20px;
+    color: white;
+}
+
+.input-container-registration {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-container-registration label {
+    color: white;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-container-registration input {
+    width: 93%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.button-registration {
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(60, 60, 60, 0.8);
+    color: white;
+    text-decoration: none;
+    border: 1px solid white;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.button-registration:hover {
+    background-color: white;
+    color: #333;
+}
+
+/* Стиль для авторизации */
+
+.login-container {
+    background-color: rgba(60, 60, 60, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    width: 300px;
+}
+
+.login-container h2 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.input-container-authorization {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-container-authorization label {
+    color: white;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-container-authorization input {
+    width: 93%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.button-authorization {
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(60, 60, 60, 0.8);
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.button-authorization:hover {
+    background-color:  white;
+    color: #333;
+}
+
+.register-button-authorization {
+    display: block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: white;
+    border: 1px solid white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.register-button-authorization:hover {
+    background-color:  white;
+    color: #333;
+}
