@@ -9,17 +9,17 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
-@Table(name= HibernateConstants.CONSTANTS_TABLE_INFO_USERS)
+@Table(name = HibernateConstants.CONSTANTS_TABLE_INFO_USERS)
 public class UserInfo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name=HibernateConstants.CONSTANTS_COLUMN_ID_INFO_USER)
+    @Column(name = HibernateConstants.CONSTANTS_COLUMN_ID_INFO_USER)
     private int idInfoUser;
 
     @NotNull(message = ValidationMessageConstants.CONSTANTS_MESSAGE_101)
     @Size(min = 3, max = 15, message = ValidationMessageConstants.CONSTANTS_MESSAGE_104)
-    @Column(name=HibernateConstants.CONSTANTS_COLUMN_NAME)
+    @Column(name = HibernateConstants.CONSTANTS_COLUMN_NAME)
     private String name;
 
     @NotNull(message = ValidationMessageConstants.CONSTANTS_MESSAGE_101)

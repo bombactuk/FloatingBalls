@@ -2,7 +2,8 @@ package shop.paintball.project.controller.constant;
 
 public final class RequestConstants {
 
-    private RequestConstants(){}
+    private RequestConstants() {
+    }
 
     public static final String CONSTANTS_REQUEST_SHOW_AUTHORIZATION_PAGE = "/showAuthorizationPage";
     public static final String CONSTANTS_REQUEST_SHOW_REGISTRATION_PAGE = "/showRegistrationPage";

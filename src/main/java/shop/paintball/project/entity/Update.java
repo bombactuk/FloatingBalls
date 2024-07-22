@@ -7,21 +7,21 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
-@Table(name= HibernateConstants.CONSTANTS_TABLE_UPDATES)
+@Table(name = HibernateConstants.CONSTANTS_TABLE_UPDATES)
 public class Update {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name=HibernateConstants.CONSTANTS_COLUMN_ID_UPDATES)
+    @Column(name = HibernateConstants.CONSTANTS_COLUMN_ID_UPDATES)
     private int idUpdate;
 
-    @Column(name=HibernateConstants.CONSTANTS_COLUMN_TITLE)
+    @Column(name = HibernateConstants.CONSTANTS_COLUMN_TITLE)
     private String title;
 
-    @Column(name=HibernateConstants.CONSTANTS_COLUMN_CONTENT)
+    @Column(name = HibernateConstants.CONSTANTS_COLUMN_CONTENT)
     private String content;
 
-    @Column(name=HibernateConstants.CONSTANTS_COLUMN_DATE_POST)
+    @Column(name = HibernateConstants.CONSTANTS_COLUMN_DATE_POST)
     private LocalDate date_post;
 
     @OneToOne

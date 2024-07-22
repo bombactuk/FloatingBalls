@@ -2,7 +2,8 @@ package shop.paintball.project.controller.constant;
 
 public final class EndpointConstants {
 
-    private EndpointConstants(){}
+    private EndpointConstants() {
+    }
 
     public static final String CONSTANTS_PAGE_AUTHORIZATION = "authorization_page";
     public static final String CONSTANTS_PAGE_REGISTRATION = "registration_page";

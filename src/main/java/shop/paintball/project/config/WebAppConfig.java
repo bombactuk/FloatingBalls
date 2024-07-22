@@ -27,7 +27,7 @@ import java.util.Locale;
 public class WebAppConfig implements WebMvcConfigurer {
 
     @Bean
-    public ViewResolver viewResolver(){
+    public ViewResolver viewResolver() {
 
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
 

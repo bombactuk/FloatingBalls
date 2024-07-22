@@ -5,7 +5,6 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.context.MessageSource;
-import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,7 +19,7 @@ import shop.paintball.project.controller.constant.RequestConstants;
 import shop.paintball.project.entity.Role;
 import shop.paintball.project.entity.Token;
 import shop.paintball.project.entity.User;
-import shop.paintball.project.servise.UserServise;
+import shop.paintball.project.servise.UserService;
 
 import java.util.HashSet;
 import java.util.Locale;
@@ -37,7 +36,7 @@ public class UserController {
     }
 
     @Autowired
-    private UserServise userServise;
+    private UserService userServise;
     @Autowired
     private MessageSource messageSource;
 
@@ -73,7 +72,7 @@ public class UserController {
         user.setRoles(roles);
         user.setToken(token);
 
-        if(userServise.userRegistration(user)){
+        if (userServise.userRegistration(user)) {
 
             model.addAttribute(MessageConstants.CONSTANTS_MESSAGE_SUCCESSFUL_REGISTRATION,
                     messageSource.getMessage(MessageConstants.CONSTANTS_MESSAGE_PROPERTIES_SUCCESSFUL_REGISTRATION,
@@ -81,7 +80,7 @@ public class UserController {
 
             return EndpointConstants.CONSTANTS_PAGE_AUTHORIZATION;
 
-        }else {
+        } else {
 
             model.addAttribute(MessageConstants.CONSTANTS_MESSAGE_ERROR_REGISTRATION,
                     messageSource.getMessage(MessageConstants.CONSTANTS_MESSAGE_PROPERTIES_REGISTRATION, null, locale));

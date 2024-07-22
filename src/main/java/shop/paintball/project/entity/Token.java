@@ -4,15 +4,15 @@ import jakarta.persistence.*;
 import shop.paintball.project.entity.constant.HibernateConstants;
 
 @Entity
-@Table(name= HibernateConstants.CONSTANTS_TABLE_TOKENS)
+@Table(name = HibernateConstants.CONSTANTS_TABLE_TOKENS)
 public class Token {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name=HibernateConstants.CONSTANTS_COLUMN_ID_TOKENS)
+    @Column(name = HibernateConstants.CONSTANTS_COLUMN_ID_TOKENS)
     private int idToken;
 
-    @Column(name=HibernateConstants.CONSTANTS_COLUMN_NUMBER)
+    @Column(name = HibernateConstants.CONSTANTS_COLUMN_NUMBER)
     private String number;
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)

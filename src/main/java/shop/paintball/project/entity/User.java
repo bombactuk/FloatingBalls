@@ -12,22 +12,22 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity
-@Table(name= HibernateConstants.CONSTANTS_TABLE_USERS)
+@Table(name = HibernateConstants.CONSTANTS_TABLE_USERS)
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name=HibernateConstants.CONSTANTS_COLUMN_ID_USER)
+    @Column(name = HibernateConstants.CONSTANTS_COLUMN_ID_USER)
     private int idUser;
 
     @NotNull(message = ValidationMessageConstants.CONSTANTS_MESSAGE_101)
     @Email(message = ValidationMessageConstants.CONSTANTS_MESSAGE_102)
-    @Column(name=HibernateConstants.CONSTANTS_COLUMN_LOGIN)
+    @Column(name = HibernateConstants.CONSTANTS_COLUMN_LOGIN)
     private String login;
 
     @NotNull(message = ValidationMessageConstants.CONSTANTS_MESSAGE_101)
     @Size(min = 8, max = 15, message = ValidationMessageConstants.CONSTANTS_MESSAGE_103)
-    @Column(name=HibernateConstants.CONSTANTS_COLUMN_PASSWORD)
+    @Column(name = HibernateConstants.CONSTANTS_COLUMN_PASSWORD)
     private String password;
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -35,7 +35,7 @@ public class User {
     @Valid
     private UserInfo infoUser;
 
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = HibernateConstants.CONSTANTS_MAPPED_BY_USER,cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = HibernateConstants.CONSTANTS_MAPPED_BY_USER, cascade = CascadeType.ALL)
     private Token token;
 
     @ManyToMany(fetch = FetchType.LAZY)
@@ -49,13 +49,13 @@ public class User {
     @OneToOne(fetch = FetchType.LAZY, mappedBy = HibernateConstants.CONSTANTS_MAPPED_BY_USER, cascade = CascadeType.ALL)
     private SocialMedia socialMedia;
 
-    @OneToOne(fetch = FetchType.LAZY,mappedBy = HibernateConstants.CONSTANTS_MAPPED_BY_USER, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = HibernateConstants.CONSTANTS_MAPPED_BY_USER, cascade = CascadeType.ALL)
     private AboutUs aboutUs;
 
     @OneToOne(fetch = FetchType.LAZY, mappedBy = HibernateConstants.CONSTANTS_MAPPED_BY_USER, cascade = CascadeType.ALL)
     private Update update;
 
-    @OneToOne(fetch = FetchType.LAZY,mappedBy = HibernateConstants.CONSTANTS_MAPPED_BY_USER, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = HibernateConstants.CONSTANTS_MAPPED_BY_USER, cascade = CascadeType.ALL)
     private Product product;
 
     @ManyToMany(fetch = FetchType.LAZY)

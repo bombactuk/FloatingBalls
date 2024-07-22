@@ -8,24 +8,24 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name= HibernateConstants.CONSTANTS_TABLE_PRODUCTS)
+@Table(name = HibernateConstants.CONSTANTS_TABLE_PRODUCTS)
 public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name=HibernateConstants.CONSTANTS_COLUMN_ID_PRODUCT)
+    @Column(name = HibernateConstants.CONSTANTS_COLUMN_ID_PRODUCT)
     private int idProduct;
 
-    @Column(name=HibernateConstants.CONSTANTS_COLUMN_IMAGES)
+    @Column(name = HibernateConstants.CONSTANTS_COLUMN_IMAGES)
     private String images;
 
-    @Column(name=HibernateConstants.CONSTANTS_COLUMN_TITLE)
+    @Column(name = HibernateConstants.CONSTANTS_COLUMN_TITLE)
     private String title;
 
-    @Column(name=HibernateConstants.CONSTANTS_COLUMN_PRICE)
+    @Column(name = HibernateConstants.CONSTANTS_COLUMN_PRICE)
     private int price;
 
-    @Column(name=HibernateConstants.CONSTANTS_COLUMN_STATUS)
+    @Column(name = HibernateConstants.CONSTANTS_COLUMN_STATUS)
     private String status;
 
     @OneToOne

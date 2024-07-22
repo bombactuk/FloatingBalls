@@ -4,15 +4,15 @@ import jakarta.persistence.*;
 import shop.paintball.project.entity.constant.HibernateConstants;
 
 @Entity
-@Table(name= HibernateConstants.CONSTANTS_TABLE_CATEGORIES)
+@Table(name = HibernateConstants.CONSTANTS_TABLE_CATEGORIES)
 public class Categories {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name=HibernateConstants.CONSTANTS_COLUMN_ID_CATEGORIES)
+    @Column(name = HibernateConstants.CONSTANTS_COLUMN_ID_CATEGORIES)
     private int idCategories;
 
-    @Column(name=HibernateConstants.CONSTANTS_COLUMN_TYPE)
+    @Column(name = HibernateConstants.CONSTANTS_COLUMN_TYPE)
     private String type;
 
     @OneToOne(mappedBy = HibernateConstants.CONSTANTS_MAPPED_BY_CATEGORIES, cascade = CascadeType.ALL)

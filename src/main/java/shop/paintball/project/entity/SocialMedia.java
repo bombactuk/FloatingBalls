@@ -6,21 +6,21 @@ import shop.paintball.project.entity.constant.HibernateConstants;
 import java.util.Objects;
 
 @Entity
-@Table(name= HibernateConstants.CONSTANTS_TABLE_SOCIAL_MEDIA)
+@Table(name = HibernateConstants.CONSTANTS_TABLE_SOCIAL_MEDIA)
 public class SocialMedia {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name=HibernateConstants.CONSTANTS_COLUMN_ID_SOCIAL_MEDIA)
+    @Column(name = HibernateConstants.CONSTANTS_COLUMN_ID_SOCIAL_MEDIA)
     private int idSocialMedia;
 
-    @Column(name=HibernateConstants.CONSTANTS_COLUMN_IMAGE)
+    @Column(name = HibernateConstants.CONSTANTS_COLUMN_IMAGE)
     private String image;
 
-    @Column(name=HibernateConstants.CONSTANTS_COLUMN_LINK)
+    @Column(name = HibernateConstants.CONSTANTS_COLUMN_LINK)
     private String link;
 
-    @Column(name=HibernateConstants.CONSTANTS_COLUMN_STATUS)
+    @Column(name = HibernateConstants.CONSTANTS_COLUMN_STATUS)
     private String status;
 
     @OneToOne

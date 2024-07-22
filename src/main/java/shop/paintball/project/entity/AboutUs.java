@@ -6,21 +6,21 @@ import shop.paintball.project.entity.constant.HibernateConstants;
 import java.time.LocalDate;
 
 @Entity
-@Table(name= HibernateConstants.CONSTANTS_TABLE_ABOUT_US)
+@Table(name = HibernateConstants.CONSTANTS_TABLE_ABOUT_US)
 public class AboutUs {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name=HibernateConstants.CONSTANTS_COLUMN_ID_ABOUT_US)
+    @Column(name = HibernateConstants.CONSTANTS_COLUMN_ID_ABOUT_US)
     private int idAboutUs;
 
-    @Column(name=HibernateConstants.CONSTANTS_COLUMN_CONTENT)
+    @Column(name = HibernateConstants.CONSTANTS_COLUMN_CONTENT)
     private String content;
 
-    @Column(name=HibernateConstants.CONSTANTS_COLUMN_DATE_POST)
+    @Column(name = HibernateConstants.CONSTANTS_COLUMN_DATE_POST)
     private LocalDate date_post;
 
-    @Column(name=HibernateConstants.CONSTANTS_COLUMN_STATUS)
+    @Column(name = HibernateConstants.CONSTANTS_COLUMN_STATUS)
     private String status;
 
     @OneToOne

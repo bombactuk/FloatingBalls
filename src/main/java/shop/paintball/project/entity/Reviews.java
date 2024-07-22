@@ -7,18 +7,18 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
-@Table(name= HibernateConstants.CONSTANTS_TABLE_REVIEWS)
+@Table(name = HibernateConstants.CONSTANTS_TABLE_REVIEWS)
 public class Reviews {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name=HibernateConstants.CONSTANTS_COLUMN_ID_REVIEWS)
+    @Column(name = HibernateConstants.CONSTANTS_COLUMN_ID_REVIEWS)
     private int idReviews;
 
-    @Column(name=HibernateConstants.CONSTANTS_COLUMN_CONTENT)
+    @Column(name = HibernateConstants.CONSTANTS_COLUMN_CONTENT)
     private String content;
 
-    @Column(name=HibernateConstants.CONSTANTS_COLUMN_DATE_POST)
+    @Column(name = HibernateConstants.CONSTANTS_COLUMN_DATE_POST)
     private LocalDate date_post;
 
     @OneToOne

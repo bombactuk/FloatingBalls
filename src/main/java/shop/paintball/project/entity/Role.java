@@ -8,18 +8,18 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity
-@Table(name= HibernateConstants.CONSTANTS_TABLE_ROLES)
+@Table(name = HibernateConstants.CONSTANTS_TABLE_ROLES)
 public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name=HibernateConstants.CONSTANTS_COLUMN_ID_ROLE)
+    @Column(name = HibernateConstants.CONSTANTS_COLUMN_ID_ROLE)
     private int idRole;
 
     @Column(name = HibernateConstants.CONSTANTS_COLUMN_TITLE)
     private String title;
 
-    @ManyToMany(mappedBy = HibernateConstants.CONSTANTS_MAPPED_BY_ROLES,fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = HibernateConstants.CONSTANTS_MAPPED_BY_ROLES, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<User> users = new HashSet<>();
 
     public int getIdRole() {

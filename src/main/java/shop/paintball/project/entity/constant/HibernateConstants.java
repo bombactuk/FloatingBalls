@@ -2,7 +2,8 @@ package shop.paintball.project.entity.constant;
 
 public final class HibernateConstants {
 
-    private HibernateConstants(){}
+    private HibernateConstants() {
+    }
 
     public static final String CONSTANTS_TABLE_ABOUT_US = "about_us";
     public static final String CONSTANTS_TABLE_CATEGORIES = "categories";
@@ -26,10 +27,10 @@ public final class HibernateConstants {
     public static final String CONSTANTS_COLUMN_ID_REVIEWS = "id_reviews";
     public static final String CONSTANTS_COLUMN_ID_USER = "id_user";
     public static final String CONSTANTS_COLUMN_ID_ROLE = "id_role";
-    public static final String CONSTANTS_COLUMN_ID_SOCIAL_MEDIA= "id_social_media";
-    public static final String CONSTANTS_COLUMN_ID_TOKENS= "id_tokens";
-    public static final String CONSTANTS_COLUMN_ID_UPDATES= "id_updates";
-    public static final String CONSTANTS_COLUMN_ID_INFO_USER=  "id_info_user";
+    public static final String CONSTANTS_COLUMN_ID_SOCIAL_MEDIA = "id_social_media";
+    public static final String CONSTANTS_COLUMN_ID_TOKENS = "id_tokens";
+    public static final String CONSTANTS_COLUMN_ID_UPDATES = "id_updates";
+    public static final String CONSTANTS_COLUMN_ID_INFO_USER = "id_info_user";
     public static final String CONSTANTS_COLUMN_CONTENT = "content";
     public static final String CONSTANTS_COLUMN_DATE_POST = "date_post";
     public static final String CONSTANTS_COLUMN_STATUS = "status";
@@ -38,20 +39,20 @@ public final class HibernateConstants {
     public static final String CONSTANTS_COLUMN_IMAGE = "image";
     public static final String CONSTANTS_COLUMN_TITLE = "title";
     public static final String CONSTANTS_COLUMN_PRICE = "price";
-    public static final String CONSTANTS_COLUMN_LINK =  "link";
-    public static final String CONSTANTS_COLUMN_NUMBER =  "number";
-    public static final String CONSTANTS_COLUMN_LOGIN =  "login";
-    public static final String CONSTANTS_COLUMN_PASSWORD =  "password";
-    public static final String CONSTANTS_COLUMN_NAME =  "name";
-    public static final String CONSTANTS_COLUMN_BIRTHDAY =  "birthday";
-    public static final String CONSTANTS_COLUMN_TELEPHONE =  "telephone";
+    public static final String CONSTANTS_COLUMN_LINK = "link";
+    public static final String CONSTANTS_COLUMN_NUMBER = "number";
+    public static final String CONSTANTS_COLUMN_LOGIN = "login";
+    public static final String CONSTANTS_COLUMN_PASSWORD = "password";
+    public static final String CONSTANTS_COLUMN_NAME = "name";
+    public static final String CONSTANTS_COLUMN_BIRTHDAY = "birthday";
+    public static final String CONSTANTS_COLUMN_TELEPHONE = "telephone";
 
-    public static final String CONSTANTS_MAPPED_BY_FEATURED_PRODUCTS= "featuredProducts";
-    public static final String CONSTANTS_MAPPED_BY_PRODUCT= "product";
+    public static final String CONSTANTS_MAPPED_BY_FEATURED_PRODUCTS = "featuredProducts";
+    public static final String CONSTANTS_MAPPED_BY_PRODUCT = "product";
     public static final String CONSTANTS_MAPPED_BY_CATEGORIES = "categories";
     public static final String CONSTANTS_MAPPED_BY_PRODUCT_INFO = "productInfo";
     public static final String CONSTANTS_MAPPED_BY_ROLES = "roles";
-    public static final String CONSTANTS_MAPPED_BY_USER= "user";
-    public static final String CONSTANTS_MAPPED_BY_INFO_USER= "infoUser";
+    public static final String CONSTANTS_MAPPED_BY_USER = "user";
+    public static final String CONSTANTS_MAPPED_BY_INFO_USER = "infoUser";
 
 }

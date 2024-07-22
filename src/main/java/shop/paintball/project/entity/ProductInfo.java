@@ -7,18 +7,18 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
-@Table(name= HibernateConstants.CONSTANTS_TABLE_INFO_PRODUCTS)
+@Table(name = HibernateConstants.CONSTANTS_TABLE_INFO_PRODUCTS)
 public class ProductInfo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name=HibernateConstants.CONSTANTS_COLUMN_ID_INFO_PRODUCT)
+    @Column(name = HibernateConstants.CONSTANTS_COLUMN_ID_INFO_PRODUCT)
     private int idInfoProduct;
 
-    @Column(name=HibernateConstants.CONSTANTS_COLUMN_CONTENT)
+    @Column(name = HibernateConstants.CONSTANTS_COLUMN_CONTENT)
     private String content;
 
-    @Column(name=HibernateConstants.CONSTANTS_COLUMN_DATE_POST)
+    @Column(name = HibernateConstants.CONSTANTS_COLUMN_DATE_POST)
     private LocalDate post_date;
 
     @OneToOne(mappedBy = HibernateConstants.CONSTANTS_MAPPED_BY_PRODUCT_INFO, cascade = CascadeType.ALL)
