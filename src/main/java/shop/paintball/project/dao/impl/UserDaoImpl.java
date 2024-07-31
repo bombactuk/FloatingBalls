@@ -15,8 +15,8 @@ public class UserDaoImpl implements UserDao {
     @Autowired
     private SessionFactory sessionFactory;
 
-    public UserDaoImpl(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
+    private Session getCurrentSession() {
+        return sessionFactory.getCurrentSession();
     }
 
     @Override
@@ -25,9 +25,7 @@ public class UserDaoImpl implements UserDao {
 
         try {
 
-            Session session = sessionFactory.getCurrentSession();
-
-            session.save(userRegistration);
+            getCurrentSession().save(userRegistration);
 
             return true;
 
@@ -43,11 +41,11 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     @Transactional
-    public User checkingAnExistingUserByEmail(User user) {
+    public User checkingAnExistingUserByEmail(String login) {
 
-        return (User) sessionFactory.getCurrentSession()
-                .createQuery("from User where login = :login")
-                .setParameter("login", user.getLogin())
+        return getCurrentSession()
+                .createQuery("from User where login = :login", User.class)
+                .setParameter("login", login)
                 .uniqueResult();
 
     }

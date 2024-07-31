@@ -2,7 +2,6 @@ package shop.paintball.project.servise.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import shop.paintball.project.dao.UserDao;
 import shop.paintball.project.entity.User;
 import shop.paintball.project.servise.UserService;
@@ -14,7 +13,6 @@ public class UserServiceImpl implements UserService {
     private UserDao userDao;
 
     @Override
-    @Transactional
     public boolean userRegistration(User userRegistration) {
 
         return userDao.userRegistration(userRegistration);
@@ -22,10 +20,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @Transactional
-    public boolean checkingAnExistingUserByEmail(User user) {
+    public User checkingAnExistingUserByEmail(String login) {
 
-        return userDao.checkingAnExistingUserByEmail(user) != null;
+        return userDao.checkingAnExistingUserByEmail(login);
 
     }
 

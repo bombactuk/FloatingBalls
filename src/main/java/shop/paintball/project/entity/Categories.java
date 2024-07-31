@@ -1,9 +1,17 @@
 package shop.paintball.project.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import shop.paintball.project.entity.constant.HibernateConstants;
 
+import java.util.List;
+
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = HibernateConstants.CONSTANTS_TABLE_CATEGORIES)
 public class Categories {
 
@@ -15,40 +23,14 @@ public class Categories {
     @Column(name = HibernateConstants.CONSTANTS_COLUMN_TYPE)
     private String type;
 
-    @OneToOne(mappedBy = HibernateConstants.CONSTANTS_MAPPED_BY_CATEGORIES, cascade = CascadeType.ALL)
-    private Product product;
+    @Column(name = HibernateConstants.CONSTANTS_COLUMN_IMAGE)
+    private String image;
 
-    public int getIdCategories() {
-        return idCategories;
-    }
+    @OneToMany(mappedBy = "categories", cascade = CascadeType.ALL)
+    private List<Product> products;
 
-    public void setIdCategories(int idCategories) {
-        this.idCategories = idCategories;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
-    }
-
-    @Override
-    public String toString() {
-        return "Categories{" +
-                "idCategories=" + idCategories +
-                ", type='" + type + '\'' +
-                ", product=" + product +
-                '}';
-    }
+    @Transient
+    private int productCount;
 
 }
+

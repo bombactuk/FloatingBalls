@@ -10,15 +10,21 @@
 
         <div class="footer-section">
 
-            <h3>Contact Us</h3>
+            <h3><spring:message code="footer.label.social.media" /></h3>
 
-            <ul>
+            <div class="social-media">
 
-                <li>Email: contact@mywebsite.com</li>
-                <li>Phone: +123 456 7890</li>
-                <li>Address: 123 Main Street, Anytown, USA</li>
+                <c:forEach var="social" items="${socialMediaList}">
 
-            </ul>
+                    <a href="${social.link}" target="_blank">
+
+                        <img src="${social.image}"/>
+
+                    </a>
+
+                </c:forEach>
+
+            </div>
 
         </div>
 
@@ -51,7 +57,10 @@
     function changeLanguage() {
 
         const language = document.getElementById('language-select').value;
-        window.location.href = '?lang=' + language;
+        const currentUrl = window.location.href;
+        const url = new URL(currentUrl);
+        url.searchParams.set('lang', language);
+        window.location.href = url.toString();
 
     }
 

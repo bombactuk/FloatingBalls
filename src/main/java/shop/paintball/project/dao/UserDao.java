@@ -6,6 +6,6 @@ public interface UserDao {
 
     boolean userRegistration(User userRegistration);
 
-    User checkingAnExistingUserByEmail(User user);
+    User checkingAnExistingUserByEmail(String login);
 
 }

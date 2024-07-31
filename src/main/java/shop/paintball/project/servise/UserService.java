@@ -6,6 +6,6 @@ public interface UserService {
 
     boolean userRegistration(User userRegistration);
 
-    boolean checkingAnExistingUserByEmail(User user);
+    User checkingAnExistingUserByEmail(String login);
 
 }

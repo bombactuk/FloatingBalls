@@ -1,19 +1,41 @@
 package shop.paintball.project.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import shop.paintball.project.controller.constant.EndpointConstants;
 import shop.paintball.project.controller.constant.EntityConstants;
-import shop.paintball.project.controller.constant.RequestConstants;
 import shop.paintball.project.entity.User;
+import shop.paintball.project.servise.*;
+
+import java.util.List;
 
 
 @Controller
 public class PageTransitionController {
+
+    @Autowired
+    private ShopService shopService;
+
+    @Autowired
+    private UpdateService updateService;
+
+    @Autowired
+    private BannerService bannerService;
+
+    @Autowired
+    private CategoriesService categoriesService;
+
+    @Autowired
+    private ProductService productService;
+
+    @Autowired
+    private ReviewsService reviewsService;
 
     @InitBinder
     public void initBinder(WebDataBinder dataBinder) {
@@ -22,14 +44,14 @@ public class PageTransitionController {
         dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
     }
 
-    @RequestMapping(RequestConstants.CONSTANTS_REQUEST_SHOW_AUTHORIZATION_PAGE)
+    @RequestMapping("/showAuthorizationPage")
     public String authorizationPage(Model theModel) {
 
         return EndpointConstants.CONSTANTS_PAGE_AUTHORIZATION;
 
     }
 
-    @RequestMapping(RequestConstants.CONSTANTS_REQUEST_SHOW_REGISTRATION_PAGE)
+    @RequestMapping("/showRegistrationPage")
     public String registrationPage(Model theModel) {
 
         theModel.addAttribute(EntityConstants.CONSTANTS_ENTITY_USER, new User());
@@ -38,24 +60,59 @@ public class PageTransitionController {
 
     }
 
-    @RequestMapping(RequestConstants.CONSTANTS_REQUEST_SHOW_ABOUT_US_PAGE)
+    @RequestMapping("/showAboutUsPage")
     public String aboutUsPage(Model theModel) {
+
+        theModel.addAttribute(EntityConstants.CONSTANTS_ENTITY_SHOP, shopService.findAllShop());
 
         return EndpointConstants.CONSTANTS_PAGE_ABOUT_US;
 
     }
 
-    @RequestMapping(RequestConstants.CONSTANTS_REQUEST_SHOW_MAIN_PAGE)
+    @RequestMapping("/showMainPage")
     public String mainPage(Model theModel) {
+
+        theModel.addAttribute(EntityConstants.CONSTANTS_ENTITY_UPDATES, updateService.findAllUpdate());
+        theModel.addAttribute(EntityConstants.CONSTANTS_ENTITY_BANNERS, bannerService.findAllBanner());
 
         return EndpointConstants.CONSTANTS_PAGE_MAIN;
 
     }
 
-    @RequestMapping(RequestConstants.CONSTANTS_REQUEST_SHOW_CATALOG_PAGE)
+    @RequestMapping("/showCatalogPage")
     public String catalogPage(Model theModel) {
 
+        theModel.addAttribute(EntityConstants.CONSTANTS_ENTITY_CATEGORIES, categoriesService.getAllCategoriesWithProductCount());
+
         return EndpointConstants.CONSTANTS_PAGE_CATALOG;
+
+    }
+
+    @RequestMapping("/showProductListPage")
+    public String productListPage(@RequestParam(EntityConstants.CONSTANTS_ENTITY_CATEGORIES_ID) int idCategories, Model theModel) {
+
+        theModel.addAttribute(EntityConstants.CONSTANTS_ENTITY_PRODUCTS, productService.listOfProductsByCategory(idCategories));
+        theModel.addAttribute(EntityConstants.CONSTANTS_ENTITY_CATEGORIES_ID, idCategories);
+
+        return EndpointConstants.CONSTANTS_PAGE_PRODUCT_LIST;
+
+    }
+
+    @RequestMapping("/showProductInfoPage")
+    public String productInfoPage(@RequestParam(EntityConstants.CONSTANTS_ENTITY_PRODUCTS_ID) int idProduct, Model theModel) {
+
+        theModel.addAttribute(EntityConstants.CONSTANTS_ENTITY_PRODUCT, productService.displayingProductInformation(idProduct));
+        theModel.addAttribute(EntityConstants.CONSTANTS_ENTITY_PRODUCT_IMAGES, productService.getImagesByProductId(idProduct));
+        theModel.addAttribute(EntityConstants.CONSTANTS_ENTITY_REVIEWS, reviewsService.displayAllProductReviews(idProduct));
+
+        return EndpointConstants.CONSTANTS_PAGE_PRODUCT_INFO;
+
+    }
+
+    @RequestMapping("/showProfileUserPage")
+    public String showProfileUser(Model theModel) {
+
+        return EndpointConstants.CONSTANTS_PAGE_PROFILE;
 
     }
 

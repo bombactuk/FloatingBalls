@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import shop.paintball.project.controller.constant.EndpointConstants;
 import shop.paintball.project.controller.constant.EntityConstants;
 import shop.paintball.project.controller.constant.MessageConstants;
-import shop.paintball.project.controller.constant.RequestConstants;
 import shop.paintball.project.entity.Role;
 import shop.paintball.project.entity.Token;
 import shop.paintball.project.entity.User;
@@ -36,11 +35,11 @@ public class UserController {
     }
 
     @Autowired
-    private UserService userServise;
+    private UserService userService;
     @Autowired
     private MessageSource messageSource;
 
-    @RequestMapping(RequestConstants.CONSTANTS_REQUEST_REGISTER_USER)
+    @RequestMapping("/registerUser")
     public String registerUser(@Valid @ModelAttribute(EntityConstants.CONSTANTS_ENTITY_USER) User user,
                                BindingResult theBindingResult, Model model, Locale locale) {
 
@@ -50,7 +49,7 @@ public class UserController {
 
         }
 
-        if (userServise.checkingAnExistingUserByEmail(user)) {
+        if (userService.checkingAnExistingUserByEmail(user.getLogin()) != null) {
 
             model.addAttribute(MessageConstants.CONSTANTS_MESSAGE_ERROR_NOT_MAIL,
                     messageSource.getMessage(MessageConstants.CONSTANTS_MESSAGE_PROPERTIES_ERROR_NOT_MAIL, null, locale));
@@ -72,7 +71,7 @@ public class UserController {
         user.setRoles(roles);
         user.setToken(token);
 
-        if (userServise.userRegistration(user)) {
+        if (userService.userRegistration(user)) {
 
             model.addAttribute(MessageConstants.CONSTANTS_MESSAGE_SUCCESSFUL_REGISTRATION,
                     messageSource.getMessage(MessageConstants.CONSTANTS_MESSAGE_PROPERTIES_SUCCESSFUL_REGISTRATION,
