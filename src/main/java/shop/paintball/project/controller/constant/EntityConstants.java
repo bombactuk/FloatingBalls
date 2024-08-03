@@ -25,4 +25,6 @@ public final class EntityConstants {
 
     public static final String CONSTANTS_ENTITY_REVIEWS = "reviews";
 
+    public static final String CONSTANTS_ENTITY_ERROR_MESSAGE="message";
+
 }

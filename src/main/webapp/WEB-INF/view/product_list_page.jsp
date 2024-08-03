@@ -91,8 +91,14 @@
 
         <script>
 
-            function submitSearchForm() {
-                document.getElementById("searchForm").submit();
+            function submitSearchForm(event) {
+
+                if (event.key === "Enter") {
+
+                    document.getElementById("searchForm").submit();
+
+                }
+
             }
 
         </script>

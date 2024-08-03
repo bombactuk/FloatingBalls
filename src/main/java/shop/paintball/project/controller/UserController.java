@@ -14,11 +14,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import shop.paintball.project.controller.constant.EndpointConstants;
 import shop.paintball.project.controller.constant.EntityConstants;
-import shop.paintball.project.controller.constant.MessageConstants;
+import shop.paintball.project.controller.constant.ErrorMessageConstantsController;
+import shop.paintball.project.controller.constant.MessagePropertiesConstants;
 import shop.paintball.project.entity.Role;
 import shop.paintball.project.entity.Token;
 import shop.paintball.project.entity.User;
-import shop.paintball.project.servise.UserService;
+import shop.paintball.project.exception.ControllerException;
+import shop.paintball.project.exception.ServiceException;
+import shop.paintball.project.service.UserService;
 
 import java.util.HashSet;
 import java.util.Locale;
@@ -27,64 +30,74 @@ import java.util.Set;
 @Controller
 public class UserController {
 
-    @InitBinder
-    public void initBinder(WebDataBinder dataBinder) {
-
-        StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
-        dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
-    }
-
     @Autowired
     private UserService userService;
     @Autowired
     private MessageSource messageSource;
 
+    @InitBinder
+    public void initBinder(WebDataBinder dataBinder) {
+
+        StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
+        dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
+
+    }
+
     @RequestMapping("/registerUser")
     public String registerUser(@Valid @ModelAttribute(EntityConstants.CONSTANTS_ENTITY_USER) User user,
                                BindingResult theBindingResult, Model model, Locale locale) {
 
-        if (theBindingResult.hasErrors()) {
+        try {
 
-            return EndpointConstants.CONSTANTS_PAGE_REGISTRATION;
+            if (theBindingResult.hasErrors()) {
 
-        }
+                return EndpointConstants.CONSTANTS_PAGE_REGISTRATION;
 
-        if (userService.checkingAnExistingUserByEmail(user.getLogin()) != null) {
+            }
 
-            model.addAttribute(MessageConstants.CONSTANTS_MESSAGE_ERROR_NOT_MAIL,
-                    messageSource.getMessage(MessageConstants.CONSTANTS_MESSAGE_PROPERTIES_ERROR_NOT_MAIL, null, locale));
+            if (userService.checkingAnExistingUserByEmail(user.getLogin()) != null) {
 
-            return EndpointConstants.CONSTANTS_PAGE_REGISTRATION;
+                model.addAttribute(MessagePropertiesConstants.CONSTANTS_MESSAGE_ERROR_NOT_MAIL,
+                        messageSource.getMessage(MessagePropertiesConstants.CONSTANTS_MESSAGE_PROPERTIES_ERROR_NOT_MAIL, null, locale));
 
-        }
+                return EndpointConstants.CONSTANTS_PAGE_REGISTRATION;
 
-        Set<Role> roles = new HashSet<>();
-        Role role = new Role();
-        Token token = new Token();
+            }
 
-        token.setNumber("");
-        token.setUser(user);
+            Set<Role> roles = new HashSet<>();
+            Role role = new Role();
+            Token token = new Token();
 
-        role.setIdRole(1);
-        roles.add(role);
+            token.setNumber("");
+            token.setUser(user);
 
-        user.setRoles(roles);
-        user.setToken(token);
+            role.setIdRole(1);
+            roles.add(role);
 
-        if (userService.userRegistration(user)) {
+            user.setRoles(roles);
+            user.setToken(token);
 
-            model.addAttribute(MessageConstants.CONSTANTS_MESSAGE_SUCCESSFUL_REGISTRATION,
-                    messageSource.getMessage(MessageConstants.CONSTANTS_MESSAGE_PROPERTIES_SUCCESSFUL_REGISTRATION,
-                            null, locale));
+            if (userService.userRegistration(user)) {
 
-            return EndpointConstants.CONSTANTS_PAGE_AUTHORIZATION;
+                model.addAttribute(MessagePropertiesConstants.CONSTANTS_MESSAGE_SUCCESSFUL_REGISTRATION,
+                        messageSource.getMessage(MessagePropertiesConstants.CONSTANTS_MESSAGE_PROPERTIES_SUCCESSFUL_REGISTRATION,
+                                null, locale));
 
-        } else {
+                return EndpointConstants.CONSTANTS_PAGE_AUTHORIZATION;
 
-            model.addAttribute(MessageConstants.CONSTANTS_MESSAGE_ERROR_REGISTRATION,
-                    messageSource.getMessage(MessageConstants.CONSTANTS_MESSAGE_PROPERTIES_REGISTRATION, null, locale));
+            } else {
 
-            return EndpointConstants.CONSTANTS_PAGE_REGISTRATION;
+                model.addAttribute(MessagePropertiesConstants.CONSTANTS_MESSAGE_ERROR_REGISTRATION,
+                        messageSource.getMessage(MessagePropertiesConstants.CONSTANTS_MESSAGE_PROPERTIES_REGISTRATION, null, locale));
+
+                return EndpointConstants.CONSTANTS_PAGE_REGISTRATION;
+
+            }
+
+
+        } catch (ServiceException e) {
+
+            throw new ControllerException(ErrorMessageConstantsController.CONSTANTS_ERROR_MESSAGE_SAVE_USER, e);
 
         }
 

@@ -6,6 +6,9 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import shop.paintball.project.dao.constant.ErrorMessageConstantsDao;
+import shop.paintball.project.dao.constant.ParameterConstantsDao;
+import shop.paintball.project.exception.DaoException;
 import shop.paintball.project.dao.UserDao;
 import shop.paintball.project.entity.User;
 
@@ -21,7 +24,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     @Transactional
-    public boolean userRegistration(User userRegistration) {
+    public boolean userRegistration(User userRegistration) throws DaoException {
 
         try {
 
@@ -31,22 +34,30 @@ public class UserDaoImpl implements UserDao {
 
         } catch (Exception e) {
 
-            // Обработка ошибки и логирование
-
-            return false;
+            throw new DaoException(ErrorMessageConstantsDao.CONSTANTS_ERROR_MESSAGE_SAVE_USER, e);
 
         }
 
     }
 
+    private static final String HQL_CHECKING_FOR_USER_EXISTENCE = "FROM User WHERE login = :login";
+
     @Override
     @Transactional
-    public User checkingAnExistingUserByEmail(String login) {
+    public User checkingAnExistingUserByEmail(String login) throws DaoException {
 
-        return getCurrentSession()
-                .createQuery("from User where login = :login", User.class)
-                .setParameter("login", login)
-                .uniqueResult();
+        try {
+
+            return getCurrentSession()
+                    .createQuery(HQL_CHECKING_FOR_USER_EXISTENCE, User.class)
+                    .setParameter(ParameterConstantsDao.CONSTANTS_PARAMETER_LOGIN, login)
+                    .uniqueResult();
+
+        } catch (Exception e) {
+
+            throw new DaoException(ErrorMessageConstantsDao.CONSTANTS_ERROR_MESSAGE_CHECKING_USER, e);
+
+        }
 
     }
 

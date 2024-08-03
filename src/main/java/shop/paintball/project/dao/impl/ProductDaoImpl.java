@@ -5,6 +5,9 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import shop.paintball.project.dao.constant.ErrorMessageConstantsDao;
+import shop.paintball.project.dao.constant.ParameterConstantsDao;
+import shop.paintball.project.exception.DaoException;
 import shop.paintball.project.dao.ProductDao;
 import shop.paintball.project.entity.ImageProduct;
 import shop.paintball.project.entity.Product;
@@ -21,60 +24,91 @@ public class ProductDaoImpl implements ProductDao {
         return sessionFactory.getCurrentSession();
     }
 
+    private static final String HQL_OUTPUT_OF_ALL_PRODUCTS_AND_IMAGE = "FROM Product p LEFT JOIN FETCH p.images" +
+            " WHERE p.categories.idCategories = :idCategories";
+
     @Override
     @Transactional
-    public List<Product> listOfProductsByCategory(int idCategory) {
+    public List<Product> listOfProductsByCategory(int idCategory) throws DaoException {
 
-        return getCurrentSession()
-                .createQuery("FROM Product p LEFT JOIN FETCH p.images WHERE p.categories.idCategories = :idCategories",
-                        Product.class)
-                .setParameter("idCategories", idCategory)
-                .list();
+        try {
+
+            return getCurrentSession()
+                    .createQuery(HQL_OUTPUT_OF_ALL_PRODUCTS_AND_IMAGE, Product.class)
+                    .setParameter(ParameterConstantsDao.CONSTANTS_PARAMETER_ID_CATEGORIES, idCategory)
+                    .list();
+
+        } catch (Exception e) {
+
+            throw new DaoException(ErrorMessageConstantsDao.CONSTANTS_ERROR_MESSAGE_ALL_PRODUCTS, e);
+
+        }
 
     }
 
+    private static final String HQL_OUTPUT_OF_INFO_PRODUCT_BY_ID = "FROM Product WHERE idProduct = :idProduct";
+
     @Override
     @Transactional
-    public Product displayingProductInformation(int idProduct) {
+    public Product displayingProductInformation(int idProduct) throws DaoException {
 
-        return getCurrentSession()
-                .createQuery("FROM Product WHERE idProduct = :idProduct", Product.class)
-                .setParameter("idProduct", idProduct)
-                .uniqueResult();
+        try {
+
+            return getCurrentSession()
+                    .createQuery(HQL_OUTPUT_OF_INFO_PRODUCT_BY_ID, Product.class)
+                    .setParameter(ParameterConstantsDao.CONSTANTS_PARAMETER_ID_PRODUCT, idProduct)
+                    .uniqueResult();
+
+        } catch (Exception e) {
+
+            throw new DaoException(ErrorMessageConstantsDao.CONSTANTS_ERROR_MESSAGE_OUTPUT_INFO_PRODUCT, e);
+
+        }
 
     }
 
+    private static final String HQL_OUTPUT_OF_IMAGE_PRODUCT_BY_ID = "FROM ImageProduct" +
+            " WHERE product.idProduct = :idProduct";
+
     @Override
     @Transactional
-    public List<Product> getProductsByCategoryId(int categoryId) {
+    public List<ImageProduct> getImagesByProductId(int idProduct) throws DaoException {
 
-        return getCurrentSession()
-                .createQuery("from Product where categories.idCategories = :categoryId", Product.class)
-                .setParameter("categoryId", categoryId)
-                .list();
+        try {
+
+            return getCurrentSession()
+                    .createQuery(HQL_OUTPUT_OF_IMAGE_PRODUCT_BY_ID, ImageProduct.class)
+                    .setParameter(ParameterConstantsDao.CONSTANTS_PARAMETER_ID_PRODUCT, idProduct)
+                    .list();
+
+        } catch (Exception e) {
+
+            throw new DaoException(ErrorMessageConstantsDao.CONSTANTS_ERROR_MESSAGE_OUTPUT_IMAGE_PRODUCT, e);
+
+        }
 
     }
 
-    @Override
-    @Transactional
-    public List<ImageProduct> getImagesByProductId(int idProduct) {
-
-        return getCurrentSession()
-                .createQuery("from ImageProduct where product.idProduct = :idProduct", ImageProduct.class)
-                .setParameter("idProduct", idProduct)
-                .list();
-
-    }
+    private static final String HQL_OUTPUT_SEARCH_PRODUCT = "FROM Product p LEFT JOIN FETCH p.images" +
+            " WHERE p.categories.idCategories = :idCategories AND (title LIKE :query)";
 
     @Override
     @Transactional
-    public List<Product> searchProductsList(int idCategories, String query) {
+    public List<Product> searchProductsList(int idCategories, String query) throws DaoException {
 
-        return sessionFactory.getCurrentSession().createQuery(
-                        "FROM Product p LEFT JOIN FETCH p.images WHERE p.categories.idCategories = :idCategories AND (title LIKE :query)", Product.class)
-                .setParameter("idCategories", idCategories)
-                .setParameter("query", "%" + query + "%")
-                .list();
+        try {
+
+            return sessionFactory.getCurrentSession().createQuery(
+                            HQL_OUTPUT_SEARCH_PRODUCT, Product.class)
+                    .setParameter(ParameterConstantsDao.CONSTANTS_PARAMETER_ID_CATEGORIES, idCategories)
+                    .setParameter(ParameterConstantsDao.CONSTANTS_PARAMETER_QUERY, "%" + query + "%")
+                    .list();
+
+        } catch (Exception e) {
+
+            throw new DaoException(ErrorMessageConstantsDao.CONSTANTS_ERROR_MESSAGE_SEARCH_PRODUCT, e);
+
+        }
 
     }
 

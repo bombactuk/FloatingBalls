@@ -13,5 +13,6 @@ public final class EndpointConstants {
     public static final String CONSTANTS_PAGE_PRODUCT_LIST = "product_list_page";
     public static final String CONSTANTS_PAGE_PRODUCT_INFO = "product_info_page";
     public static final String CONSTANTS_PAGE_PROFILE = "profile_page";
+    public static final String CONSTANTS_PAGE_ERROR = "error_page";
 
 }

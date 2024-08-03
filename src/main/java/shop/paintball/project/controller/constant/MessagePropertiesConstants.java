@@ -1,8 +1,8 @@
 package shop.paintball.project.controller.constant;
 
-public final class MessageConstants {
+public final class MessagePropertiesConstants {
 
-    private MessageConstants() {
+    private MessagePropertiesConstants() {
     }
 
     public static final String CONSTANTS_MESSAGE_ERROR_NOT_MAIL = "emailError";
@@ -13,5 +13,7 @@ public final class MessageConstants {
 
     public static final String CONSTANTS_MESSAGE_SUCCESSFUL_REGISTRATION = "successfulRegistration";
     public static final String CONSTANTS_MESSAGE_PROPERTIES_SUCCESSFUL_REGISTRATION = "message.user.101";
+
+    public static final String CONSTANTS_MESSAGE_ERROR_PAGE = "message.error.108";
 
 }
