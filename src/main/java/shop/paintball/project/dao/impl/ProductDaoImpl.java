@@ -4,7 +4,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 import shop.paintball.project.dao.constant.ErrorMessageConstantsDao;
 import shop.paintball.project.dao.constant.ParameterConstantsDao;
 import shop.paintball.project.exception.DaoException;
@@ -28,7 +27,6 @@ public class ProductDaoImpl implements ProductDao {
             " WHERE p.categories.idCategories = :idCategories";
 
     @Override
-    @Transactional
     public List<Product> listOfProductsByCategory(int idCategory) throws DaoException {
 
         try {
@@ -49,7 +47,6 @@ public class ProductDaoImpl implements ProductDao {
     private static final String HQL_OUTPUT_OF_INFO_PRODUCT_BY_ID = "FROM Product WHERE idProduct = :idProduct";
 
     @Override
-    @Transactional
     public Product displayingProductInformation(int idProduct) throws DaoException {
 
         try {
@@ -71,7 +68,6 @@ public class ProductDaoImpl implements ProductDao {
             " WHERE product.idProduct = :idProduct";
 
     @Override
-    @Transactional
     public List<ImageProduct> getImagesByProductId(int idProduct) throws DaoException {
 
         try {
@@ -93,7 +89,6 @@ public class ProductDaoImpl implements ProductDao {
             " WHERE p.categories.idCategories = :idCategories AND (title LIKE :query)";
 
     @Override
-    @Transactional
     public List<Product> searchProductsList(int idCategories, String query) throws DaoException {
 
         try {

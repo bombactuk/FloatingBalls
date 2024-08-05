@@ -2,6 +2,7 @@ package shop.paintball.project.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import shop.paintball.project.dao.CategoriesDao;
 import shop.paintball.project.exception.DaoException;
 import shop.paintball.project.dao.ProductDao;
@@ -23,6 +24,7 @@ public class CategoriesServiceImpl implements CategoriesService {
     private ProductDao productDao;
 
     @Override
+    @Transactional
     public List<Categories> findAllCategories() throws ServiceException {
 
         try {
@@ -38,6 +40,7 @@ public class CategoriesServiceImpl implements CategoriesService {
     }
 
     @Override
+    @Transactional
     public List<Categories> getAllCategoriesWithProductCount() throws ServiceException {
 
         try {

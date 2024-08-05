@@ -31,14 +31,20 @@
 
                     <h2 class="profile-title"><spring:message code="profile_page.text.profile.user" /></h2>
 
-                    <p><strong><spring:message code="profile_page.text.profile.login" /></strong> user123</p>
-                    <p><strong><spring:message code="profile_page.text.profile.name" /></strong> Иван Иванов</p>
-                    <p><strong><spring:message code="profile_page.text.profile.birthday" /></strong> 01.01.1990</p>
-                    <p><strong><spring:message code="profile_page.text.profile.telephone" /></strong> +7 123 456 7890</p>
+                    <p><strong><spring:message code="profile_page.text.profile.login" /></strong> ${user.login}</p>
+                    <p><strong><spring:message code="profile_page.text.profile.name" /></strong> ${user.infoUser.name}</p>
+                    <p><strong><spring:message code="profile_page.text.profile.birthday" /></strong> ${user.infoUser.birthday}</p>
+                    <p><strong><spring:message code="profile_page.text.profile.telephone" /></strong> ${user.infoUser.telephone}</p>
 
                 </div>
 
-                <button class="logout-button"><spring:message code="profile_page.button.profile.exit" /></button>
+                <form action="${pageContext.request.contextPath}/logout" method="post">
+
+                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+
+                    <button type="submit" class="logout-button"><spring:message code="profile_page.button.profile.exit" /></button>
+
+                </form>
 
             </div>
 

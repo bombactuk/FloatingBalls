@@ -33,5 +33,6 @@ public final class ErrorMessageConstantsService {
             "when checking an existing user";
     public static final String CONSTANTS_ERROR_MESSAGE_SAVE_USER = "Error at the service level " +
             "when saving a user";
+    public static final String CONSTANTS_ERROR_MESSAGE_USER_NOT_FOUND = "User not found";
 
 }

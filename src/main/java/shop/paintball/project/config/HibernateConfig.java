@@ -35,7 +35,6 @@ public class HibernateConfig {
         properties.put(Environment.SHOW_SQL, "true");
         properties.put(Environment.HBM2DDL_AUTO, "update");
 
-        // C3P0 properties
         properties.put(Environment.C3P0_MIN_SIZE, 5);
         properties.put(Environment.C3P0_MAX_SIZE, 100);
         properties.put(Environment.C3P0_ACQUIRE_INCREMENT, 5);

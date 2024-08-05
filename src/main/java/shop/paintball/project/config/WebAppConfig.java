@@ -1,10 +1,7 @@
 package shop.paintball.project.config;
 
 import org.springframework.context.MessageSource;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.*;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.servlet.LocaleResolver;
@@ -50,31 +47,43 @@ public class WebAppConfig implements WebMvcConfigurer {
 
     @Bean
     public MessageSource messageSource() {
+
         ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
         messageSource.setBasename("messages");
         messageSource.setDefaultEncoding("UTF-8");
+
         return messageSource;
+
     }
 
     @Bean
     public LocaleResolver localeResolver() {
+
         CookieLocaleResolver localeResolver = new CookieLocaleResolver();
-        localeResolver.setDefaultLocale(Locale.ENGLISH); // Установите локаль по умолчанию
+        localeResolver.setDefaultLocale(Locale.ENGLISH);
+
         return localeResolver;
+
     }
 
     @Bean
     public LocaleChangeInterceptor localeChangeInterceptor() {
+
         LocaleChangeInterceptor interceptor = new LocaleChangeInterceptor();
         interceptor.setParamName("lang");
+
         return interceptor;
+
     }
 
     @Bean
     public LocalValidatorFactoryBean getValidator() {
+
         LocalValidatorFactoryBean bean = new LocalValidatorFactoryBean();
         bean.setValidationMessageSource(messageSource());
+
         return bean;
+
     }
 
     @Override

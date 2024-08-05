@@ -4,8 +4,8 @@ package shop.paintball.project.dao.impl;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 import shop.paintball.project.dao.constant.ErrorMessageConstantsDao;
 import shop.paintball.project.dao.constant.ParameterConstantsDao;
 import shop.paintball.project.exception.DaoException;
@@ -18,15 +18,18 @@ public class UserDaoImpl implements UserDao {
     @Autowired
     private SessionFactory sessionFactory;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     private Session getCurrentSession() {
         return sessionFactory.getCurrentSession();
     }
 
     @Override
-    @Transactional
     public boolean userRegistration(User userRegistration) throws DaoException {
 
         try {
+            userRegistration.setPassword(passwordEncoder.encode(userRegistration.getPassword()));
 
             getCurrentSession().save(userRegistration);
 
@@ -43,7 +46,6 @@ public class UserDaoImpl implements UserDao {
     private static final String HQL_CHECKING_FOR_USER_EXISTENCE = "FROM User WHERE login = :login";
 
     @Override
-    @Transactional
     public User checkingAnExistingUserByEmail(String login) throws DaoException {
 
         try {

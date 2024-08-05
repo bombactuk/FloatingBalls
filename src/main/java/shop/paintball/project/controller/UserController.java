@@ -17,7 +17,6 @@ import shop.paintball.project.controller.constant.EntityConstants;
 import shop.paintball.project.controller.constant.ErrorMessageConstantsController;
 import shop.paintball.project.controller.constant.MessagePropertiesConstants;
 import shop.paintball.project.entity.Role;
-import shop.paintball.project.entity.Token;
 import shop.paintball.project.entity.User;
 import shop.paintball.project.exception.ControllerException;
 import shop.paintball.project.exception.ServiceException;
@@ -66,16 +65,11 @@ public class UserController {
 
             Set<Role> roles = new HashSet<>();
             Role role = new Role();
-            Token token = new Token();
-
-            token.setNumber("");
-            token.setUser(user);
 
             role.setIdRole(1);
             roles.add(role);
 
             user.setRoles(roles);
-            user.setToken(token);
 
             if (userService.userRegistration(user)) {
 

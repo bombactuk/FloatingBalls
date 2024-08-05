@@ -4,8 +4,9 @@ package shop.paintball.project.entity;
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import shop.paintball.project.entity.constant.HibernateConstants;
 import shop.paintball.project.entity.constant.ValidationMessageConstants;
 
@@ -13,7 +14,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @Table(name = HibernateConstants.CONSTANTS_TABLE_USERS)
 public class User {
@@ -29,17 +31,14 @@ public class User {
     private String login;
 
     @NotNull(message = ValidationMessageConstants.CONSTANTS_MESSAGE_101)
-    @Size(min = 8, max = 15, message = ValidationMessageConstants.CONSTANTS_MESSAGE_103)
     @Column(name = HibernateConstants.CONSTANTS_COLUMN_PASSWORD)
+    @Size(min = 8, message = ValidationMessageConstants.CONSTANTS_MESSAGE_103)
     private String password;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = HibernateConstants.CONSTANTS_COLUMN_ID_INFO_USER)
     @Valid
     private UserInfo infoUser;
-
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = HibernateConstants.CONSTANTS_MAPPED_BY_USER, cascade = CascadeType.ALL)
-    private Token token;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(

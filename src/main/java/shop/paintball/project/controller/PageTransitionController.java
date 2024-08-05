@@ -2,6 +2,7 @@ package shop.paintball.project.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import shop.paintball.project.controller.constant.EndpointConstants;
 import shop.paintball.project.controller.constant.EntityConstants;
 import shop.paintball.project.controller.constant.ErrorMessageConstantsController;
+import shop.paintball.project.entity.CustomUserDetails;
 import shop.paintball.project.entity.User;
 import shop.paintball.project.exception.ControllerException;
 import shop.paintball.project.exception.ServiceException;
@@ -153,7 +155,9 @@ public class PageTransitionController {
     }
 
     @RequestMapping("/showProfileUserPage")
-    public String showProfileUser(Model theModel) {
+    public String showProfileUser(@AuthenticationPrincipal CustomUserDetails userDetails, Model theModel) {
+
+        theModel.addAttribute("user", userDetails.getUser());
 
         return EndpointConstants.CONSTANTS_PAGE_PROFILE;
 

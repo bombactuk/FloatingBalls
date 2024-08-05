@@ -4,7 +4,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 import shop.paintball.project.dao.CategoriesDao;
 import shop.paintball.project.dao.constant.ErrorMessageConstantsDao;
 import shop.paintball.project.exception.DaoException;
@@ -25,7 +24,6 @@ public class CategoriesDaoImpl implements CategoriesDao {
     private static final String HQL_OUTPUT_OF_ALL_CATEGORIES = "FROM Categories";
 
     @Override
-    @Transactional
     public List<Categories> findAllCategories() throws DaoException {
 
         try {
@@ -42,7 +40,6 @@ public class CategoriesDaoImpl implements CategoriesDao {
     }
 
     @Override
-    @Transactional
     public Categories getCategoryById(int id) throws DaoException {
 
         try {

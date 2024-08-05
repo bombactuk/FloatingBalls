@@ -2,6 +2,7 @@ package shop.paintball.project.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import shop.paintball.project.exception.DaoException;
 import shop.paintball.project.dao.ShopDao;
 import shop.paintball.project.entity.Shop;
@@ -18,6 +19,7 @@ public class ShopServiceImpl implements ShopService {
     private ShopDao shopDao;
 
     @Override
+    @Transactional
     public List<Shop> findAllShop() throws ServiceException {
 
         try {

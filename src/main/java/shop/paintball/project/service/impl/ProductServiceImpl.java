@@ -2,6 +2,7 @@ package shop.paintball.project.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import shop.paintball.project.exception.DaoException;
 import shop.paintball.project.dao.ProductDao;
 import shop.paintball.project.entity.ImageProduct;
@@ -11,7 +12,6 @@ import shop.paintball.project.exception.ServiceException;
 import shop.paintball.project.service.constant.ErrorMessageConstantsService;
 
 import java.util.Comparator;
-import java.util.ConcurrentModificationException;
 import java.util.List;
 import java.util.Map;
 
@@ -22,6 +22,7 @@ public class ProductServiceImpl implements ProductService {
     private ProductDao productDao;
 
     @Override
+    @Transactional
     public List<Product> listOfProductsByCategory(int idCategory) throws ServiceException {
 
         try {
@@ -37,6 +38,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    @Transactional
     public Product displayingProductInformation(int idProduct) throws ServiceException {
 
         try {
@@ -52,6 +54,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    @Transactional
     public List<ImageProduct> getImagesByProductId(int idProduct) throws ServiceException {
 
         try {
@@ -67,6 +70,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    @Transactional
     public List<Product> sortOptionsProductList(int idCategories, String sortBy) {
 
         try {
@@ -95,6 +99,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    @Transactional
     public List<Product> searchProductsList(int idCategories, String query) throws ServiceException {
 
         try {

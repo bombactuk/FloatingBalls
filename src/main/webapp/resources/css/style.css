@@ -92,6 +92,80 @@ header nav ul li a:hover {
     color: #333;
 }
 
+header nav ul li button {
+    background: none; /* Убираем фон */
+    color: white; /* Цвет текста */
+    border: none; /* Убираем границу */
+    padding: 0; /* Убираем отступы */
+    font-size: 16px; /* Размер шрифта */
+    cursor: pointer; /* Курсор как у ссылки */
+    text-decoration: none; /* Подчеркивание текста */
+    transition: color 0.3s; /* Плавный переход цвета */
+}
+
+header nav ul li button:hover {
+    color: #ddd; /* Цвет текста при наведении */
+}
+
+/* Стили боковой панели */
+.side-panel {
+    position: fixed;
+    top: 0;
+    right: -250px; /* Скрыто за пределами экрана */
+    width: 250px;
+    height: 100%;
+    background: #444;
+    color: #fff;
+    transition: right 0.3s ease;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+/* Показать панель при добавлении класса .open */
+.side-panel.open {
+    right: 0;
+}
+
+/* Стили для списка внутри боковой панели */
+.side-panel ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Устанавливаем flexbox */
+    flex-direction: column; /* Элементы идут вертикально вниз */
+}
+
+/* Стили для элементов списка */
+.side-panel ul li {
+    margin-bottom: 15px; /* Отступ между элементами */
+}
+
+/* Стили для ссылок внутри элементов списка */
+.side-panel ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: block; /* Ссылки как блочные элементы */
+    padding: 10px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+/* Эффект при наведении на ссылку */
+.side-panel ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Стили для кнопки закрытия боковой панели */
+.side-panel .close-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    color: white; /* Цвет текста кнопки */
+}
+
 /* Дополнительные стили для оформления */
 .container {
     display: flex;
@@ -293,6 +367,10 @@ header nav ul li a:hover {
 .register-button-authorization:hover {
     background-color:  white;
     color: #333;
+}
+
+.authorization-label {
+    color: white;
 }
 
 /* Стиль для страниы о нас */

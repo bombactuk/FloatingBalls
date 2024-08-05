@@ -4,7 +4,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 import shop.paintball.project.dao.constant.ErrorMessageConstantsDao;
 import shop.paintball.project.dao.constant.ParameterConstantsDao;
 import shop.paintball.project.exception.DaoException;
@@ -26,7 +25,6 @@ public class UpdateDaoImpl implements UpdateDao {
     private static final String HQL_OUTPUT_OF_ALL_UPDATES = "FROM Update WHERE status = :status";
 
     @Override
-    @Transactional
     public List<Update> findAllUpdate() throws DaoException {
 
         try {

@@ -49,12 +49,21 @@ public class ProductController {
     }
 
     @RequestMapping("/searchProductsList")
-    public String searchProductsList(@RequestParam(value = EntityConstants.CONSTANTS_ENTITY_CATEGORIES_QUERY) String query,
+    public String searchProductsList(@RequestParam(value = EntityConstants.CONSTANTS_ENTITY_CATEGORIES_QUERY, required = false) String query,
                                      @RequestParam(EntityConstants.CONSTANTS_ENTITY_CATEGORIES_ID) int idCategories, Model theModel) {
 
         try {
 
-            theModel.addAttribute(EntityConstants.CONSTANTS_ENTITY_PRODUCTS, productService.searchProductsList(idCategories, query));
+            if (query == null) {
+
+                theModel.addAttribute(EntityConstants.CONSTANTS_ENTITY_PRODUCTS, productService.listOfProductsByCategory(idCategories));
+
+            } else {
+
+                theModel.addAttribute(EntityConstants.CONSTANTS_ENTITY_PRODUCTS, productService.searchProductsList(idCategories, query));
+
+            }
+
             theModel.addAttribute(EntityConstants.CONSTANTS_ENTITY_CATEGORIES_ID, idCategories);
 
             return EndpointConstants.CONSTANTS_PAGE_PRODUCT_LIST;

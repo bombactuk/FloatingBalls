@@ -2,6 +2,7 @@ package shop.paintball.project.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import shop.paintball.project.exception.DaoException;
 import shop.paintball.project.dao.UpdateDao;
 import shop.paintball.project.entity.Update;
@@ -18,6 +19,7 @@ public class UpdateServiceImpl implements UpdateService {
     private UpdateDao updateDao;
 
     @Override
+    @Transactional
     public List<Update> findAllUpdate() throws ServiceException {
 
         try {

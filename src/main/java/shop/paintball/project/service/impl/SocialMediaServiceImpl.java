@@ -2,6 +2,7 @@ package shop.paintball.project.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import shop.paintball.project.exception.DaoException;
 import shop.paintball.project.dao.SocialMediaDao;
 import shop.paintball.project.entity.SocialMedia;
@@ -18,6 +19,7 @@ public class SocialMediaServiceImpl implements SocialMediaService {
     private SocialMediaDao socialMediaDao;
 
     @Override
+    @Transactional
     public List<SocialMedia> findAllSocialMedia() throws ServiceException {
 
         try {

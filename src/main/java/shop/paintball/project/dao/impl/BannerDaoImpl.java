@@ -4,7 +4,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 import shop.paintball.project.dao.BannerDao;
 import shop.paintball.project.dao.constant.ErrorMessageConstantsDao;
 import shop.paintball.project.dao.constant.ParameterConstantsDao;
@@ -26,7 +25,6 @@ public class BannerDaoImpl implements BannerDao {
     private static final String HQL_OUTPUT_OF_ALL_BANNERS = "FROM Banner WHERE status = :status";
 
     @Override
-    @Transactional
     public List<Banner> findAllBanner() throws DaoException {
 
         try {
