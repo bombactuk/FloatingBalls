@@ -6,7 +6,7 @@
     padding: 0;
     background: url("http://localhost:8080/FloatingBalls/resources/images/background_1.jpg") no-repeat center center fixed;
     background-size: cover;
-    font-family: Arial, sans-serif; /* Пример шрифта для всего текста на странице */
+    font-family: Arial, sans-serif;
 
     display: flex;
     justify-content: center;
@@ -33,6 +33,7 @@ header {
     width: 100%;
     top: 0;
     left: 0;
+    padding-top: 5px;
     z-index: 1000;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -93,25 +94,25 @@ header nav ul li a:hover {
 }
 
 header nav ul li button {
-    background: none; /* Убираем фон */
-    color: white; /* Цвет текста */
-    border: none; /* Убираем границу */
-    padding: 0; /* Убираем отступы */
-    font-size: 16px; /* Размер шрифта */
-    cursor: pointer; /* Курсор как у ссылки */
-    text-decoration: none; /* Подчеркивание текста */
-    transition: color 0.3s; /* Плавный переход цвета */
+    background: none;
+    color: white;
+    border: none;
+    padding: 0;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.3s;
 }
 
 header nav ul li button:hover {
-    color: #ddd; /* Цвет текста при наведении */
+    color: #ddd;
 }
 
 /* Стили боковой панели */
 .side-panel {
     position: fixed;
     top: 0;
-    right: -250px; /* Скрыто за пределами экрана */
+    right: -250px;
     width: 250px;
     height: 100%;
     background: #444;
@@ -121,49 +122,43 @@ header nav ul li button:hover {
     z-index: 1000;
 }
 
-/* Показать панель при добавлении класса .open */
 .side-panel.open {
     right: 0;
 }
 
-/* Стили для списка внутри боковой панели */
 .side-panel ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: flex; /* Устанавливаем flexbox */
-    flex-direction: column; /* Элементы идут вертикально вниз */
+    display: flex;
+    flex-direction: column;
 }
 
-/* Стили для элементов списка */
 .side-panel ul li {
-    margin-bottom: 15px; /* Отступ между элементами */
+    margin-bottom: 15px;
 }
 
-/* Стили для ссылок внутри элементов списка */
 .side-panel ul li a {
     color: white;
     text-decoration: none;
     font-size: 18px;
-    display: block; /* Ссылки как блочные элементы */
+    display: block;
     padding: 10px;
     border-radius: 5px;
     transition: background 0.3s;
 }
 
-/* Эффект при наведении на ссылку */
 .side-panel ul li a:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Стили для кнопки закрытия боковой панели */
 .side-panel .close-btn {
     position: absolute;
     top: 10px;
     left: 10px;
     font-size: 20px;
     cursor: pointer;
-    color: white; /* Цвет текста кнопки */
+    color: white;
 }
 
 /* Дополнительные стили для оформления */
@@ -172,12 +167,12 @@ header nav ul li button:hover {
     justify-content: center;
     align-items: center;
     height: 100%;
-    color: #fff; /* Цвет текста */
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Тень текста */
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
 
 .content {
-    background: rgba(0, 0, 0, 0.5); /* Прозрачный черный фон */
+    background: rgba(0, 0, 0, 0.5);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -190,16 +185,16 @@ header nav ul li button:hover {
     color: white;
     padding: 20px 0;
     position: fixed;
-    bottom: -80px; /* Initial position is hidden */
+    bottom: -80px;
     width: 100%;
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
     transition: bottom 0.3s ease-in-out, opacity 0.3s ease-in-out;
-    opacity: 0.5; /* Slightly transparent initially */
+    opacity: 0.5;
 }
 
 .hidden-footer:hover {
-    bottom: 0; /* Slide up into view */
-    opacity: 1; /* Fully opaque on hover */
+    bottom: 0;
+    opacity: 1;
 }
 
 .hidden-footer .container {
@@ -382,7 +377,7 @@ header nav ul li button:hover {
     background-color: rgba(60, 60, 60, 0.8);
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    overflow-y: auto; /* Включение вертикальной прокрутки, если содержимое превышает высоту */
+    overflow-y: auto;
     max-height: 73vh
 
 }
@@ -458,7 +453,7 @@ header nav ul li button:hover {
 .updates-container {
     position: relative;
     width: 100%;
-    height: 300px; /* Установите высоту контейнера */
+    height: 300px;
     overflow: hidden;
     border: 1px solid #ddd;
     background-color: rgba(60, 60, 60, 0.8);
@@ -518,16 +513,16 @@ header nav ul li button:hover {
     position: absolute;
     right: 0;
     top: 0;
-    width: 50px; /* Задаем ширину кнопки */
+    width: 50px;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.2); /* Прозрачный черный фон */
+    background-color: rgba(0, 0, 0, 0.2);
     border: none;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 .next-button-update {
-    background-color: rgba(0, 0, 0, 0.3); /* Более темный при наведении */
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .upper-panel-update {
@@ -559,7 +554,7 @@ header nav ul li button:hover {
 .updates-container-top {
     position: relative;
     width: 100%;
-    height: 250px; /* Установите высоту контейнера */
+    height: 250px;
     overflow: hidden;
     border: 1px solid #ddd;
     background-color: rgba(60, 60, 60, 0.8);
@@ -567,7 +562,7 @@ header nav ul li button:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 30px;
     display: flex;
-    align-items: center; /* Центрируем содержимое по вертикали */
+    align-items: center;
 }
 
 .top-panel-update {
@@ -606,14 +601,14 @@ header nav ul li button:hover {
     top: 0;
     width: 50px;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.2); /* Прозрачный черный фон */
+    background-color: rgba(0, 0, 0, 0.2);
     border: none;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 .next-button-update-top:hover {
-    background-color: rgba(0, 0, 0, 0.3); /* Более темный при наведении */
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 /* Стиль для страниы категории */
@@ -626,7 +621,7 @@ header nav ul li button:hover {
 }
 
 .categories-block {
-    background-color: rgba(60, 60, 60, 0.8); /* Полупрозрачный белый фон */
+    background-color: rgba(60, 60, 60, 0.8);
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 20px;
@@ -688,6 +683,20 @@ header nav ul li button:hover {
     font-family: Arial, sans-serif;
 }
 
+.btn-category{
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: #fff;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.btn-category:hover {
+    background-color: white;
+    color: black;
+}
+
 /* Стиль для страниы списка продуктов */
 
 .product-list-container {
@@ -720,11 +729,11 @@ header nav ul li button:hover {
     width: 250px;
     padding: 15px;
     text-align: center;
-    transition: transform 0.3s ease; /* Плавный переход для увеличения */
+    transition: transform 0.3s ease;
 }
 
 .product-card:hover {
-    transform: scale(1.05); /* Увеличение размера на 5% при наведении */
+    transform: scale(1.05);
 }
 
 .product-image {
@@ -756,9 +765,9 @@ header nav ul li button:hover {
 }
 
 .product-card-link {
-    text-decoration: none; /* Убирает подчеркивание ссылки */
-    color: inherit; /* Наследует цвет от родительского элемента */
-    display: block; /* Делаем ссылку блочным элементом, чтобы весь блок был кликабельным */
+    text-decoration: none;
+    color: inherit;
+    display: block;
 }
 
 .sort-panel {
@@ -860,7 +869,7 @@ header nav ul li button:hover {
 
 .product-info {
     display: flex;
-    flex-direction: column; /* Вертикальное размещение элементов */
+    flex-direction: column;
     align-items: flex-start;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -872,10 +881,10 @@ header nav ul li button:hover {
 }
 
 .product-image-container {
-    display: grid; /* Использование Grid для управления размещением изображений */
-    grid-template-columns: 1fr auto; /* Главное изображение занимает 1/3, миниатюры - автоматический размер */
-    gap: 20px; /* Отступ между колонками */
-    align-items: start; /* Вертикальное выравнивание элементов по началу */
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 20px;
+    align-items: start;
 }
 
 .main-image-container {
@@ -885,18 +894,18 @@ header nav ul li button:hover {
 }
 
 .product-info-image {
-    width: 400px; /* Размер главного изображения */
+    width: 400px;
     height: auto;
 }
 
 .thumbnail-container {
     display: grid;
-    grid-template-columns: repeat(6, 1fr); /* 4 колонки */
-    gap: 10px; /* Расстояние между миниатюрами */
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
 }
 
 .thumbnail {
-    width: 100px; /* Размер миниатюр */
+    width: 100px;
     height: 100px;
     cursor: pointer;
     border: 2px solid transparent;
@@ -904,12 +913,12 @@ header nav ul li button:hover {
 }
 
 .thumbnail.selected {
-    border: 2px solid #007BFF; /* Цвет обводки для выбранного изображения */
+    border: 2px solid #007BFF;
 }
 
 .product-info-details {
     max-width: 600px;
-    margin-top: 20px; /* Отступ сверху, чтобы отделить текст от миниатюр */
+    margin-top: 20px;
 }
 
 .product-info-title {
@@ -930,6 +939,23 @@ header nav ul li button:hover {
 .product-info-date {
     font-size: 14px;
     color: #c0c0c0;
+}
+
+.product-info-button {
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.product-info-button:hover {
+    background-color: white;
+    color: black;
 }
 
 .reviews-section {
@@ -1124,4 +1150,390 @@ header nav ul li button:hover {
 .error-page-button:hover {
     background-color: white;
     color: black;
+}
+
+/* Стиль для странцы избранных продуктов */
+
+.product-feature-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(60, 60, 60, 0.8);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-top: 150px;
+}
+
+.product-feature-container h1{
+    text-align: center;
+    color: white;
+}
+
+.product-feature {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.product-card-feature {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.product-card-feature:hover {
+    transform: scale(1.05);
+}
+
+.product-feature-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+        pointer-events: none;
+}
+
+.product-feature-info {
+    margin-top: 10px;
+}
+
+.product-feature-title {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.product-feature-price {
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.product-feature-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.product-feature-button {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    margin-left: 20px;
+    border: 1px solid black;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: rgba(60, 60, 60, 0.8);
+}
+
+.product-feature-button:hover {
+    background-color: white;
+    color: black;
+}
+
+/* Стиль для странцы корзина */
+
+.product-basket-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(60, 60, 60, 0.8);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-top: 500px;
+}
+
+.product-basket-container h1{
+    text-align: center;
+    color: white;
+}
+
+.product-basket-container h2{
+    color: white;
+}
+
+.product-basket-container h3{
+    text-align: center;
+    color: white;
+}
+
+.product-basket {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.product-card-basket {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.product-card-basket:hover {
+    transform: scale(1.05);
+}
+
+.product-basket-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+        pointer-events: none;
+}
+
+.product-basket-info {
+    margin-top: 10px;
+}
+
+.product-basket-title {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.product-basket-price {
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.product-basket-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.product-basket-button {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    margin-left: 20px;
+    border: 1px solid black;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: rgba(60, 60, 60, 0.8);
+}
+
+.product-basket-button:hover {
+    background-color: white;
+    color: black;
+}
+
+.order-form-basket {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid white;
+    border-radius: 5px;
+    background-color: rgba(60, 60, 60, 0.8);
+}
+
+.form-group-basket  {
+    margin-bottom: 15px;
+}
+
+.form-group-basket  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color:white;
+}
+
+.form-control-basket  {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Стиль для страницы оплаты */
+
+.checkout-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.checkout-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.checkout-form-group {
+    margin-bottom: 20px;
+}
+
+.checkout-form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.checkout-form-group input {
+    width: 90%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.checkout-form-group input.error {
+    border-color: red;
+}
+
+.checkout-form-group span.error {
+    color: red;
+    font-size: 14px;
+}
+
+.checkout-btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.checkout-btn:hover {
+    background-color: #218838;
+}
+
+/* Стиль для страницы история покупок */
+
+.order-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(60, 60, 60, 0.8);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-top: 260px;
+}
+
+.order-header {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.order-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.order-card {
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    min-width: 200px;
+}
+
+.order-card h2 {
+    margin-top: 0;
+    color: #007bff;
+}
+
+.order-card p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.order-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.order-card ul li {
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.order-card ul li:last-child {
+    border-bottom: none;
+}
+
+/* Стиль для страницы обработки покупок */
+
+.order-container-processing {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(60, 60, 60, 0.8);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-top: 260px;
+}
+
+.order-header-processing {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.order-cards-processing {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.order-card-processing {
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    min-width: 200px;
+}
+
+.order-card-processing h2 {
+    margin-top: 0;
+    color: #007bff;
+}
+
+.order-card-processing p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.order-card-processing ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.order-card-processing ul li {
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.order-card-processing ul li:last-child {
+    border-bottom: none;
 }

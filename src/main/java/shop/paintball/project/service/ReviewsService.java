@@ -9,4 +9,6 @@ public interface ReviewsService {
 
     List<Reviews> displayAllProductReviews(int idProduct) throws ServiceException;
 
+    void saveReviews(Reviews reviews) throws ServiceException;
+
 }

@@ -17,9 +17,12 @@ public final class HibernateConstants {
     public static final String CONSTANTS_TABLE_USERS = "users";
     public static final String CONSTANTS_TABLE_INFO_USERS = "info_users";
     public static final String CONSTANTS_TABLE_ROLES_HAS_USERS = "roles_has_users";
+    public static final String CONSTANTS_TABLE_ORDER_PRODUCTS = "orders_products";
     public static final String CONSTANTS_TABLE_FEATURED_PRODUCTS = "featured_products";
     public static final String CONSTANTS_TABLE_BANNERS = "banners";
     public static final String CONSTANTS_TABLE_IMAGES_PRODUCT = "images_product";
+    public static final String CONSTANTS_TABLE_PRODUCT_FEATURED = "featured_products";
+    public static final String CONSTANTS_TABLE_ORDER = "orders";
 
     public static final String CONSTANTS_COLUMN_ID_SHOP = "id_shop";
     public static final String CONSTANTS_COLUMN_ID_ADMIN = "id_admin";
@@ -30,7 +33,7 @@ public final class HibernateConstants {
     public static final String CONSTANTS_COLUMN_ID_USER = "id_user";
     public static final String CONSTANTS_COLUMN_ID_ROLE = "id_role";
     public static final String CONSTANTS_COLUMN_ID_SOCIAL_MEDIA = "id_social_media";
-    public static final String CONSTANTS_COLUMN_ID_TOKENS = "id_tokens";
+    public static final String CONSTANTS_COLUMN_ID_ORDER = "id_order";
     public static final String CONSTANTS_COLUMN_ID_UPDATES = "id_updates";
     public static final String CONSTANTS_COLUMN_ID_INFO_USER = "id_info_user";
     public static final String CONSTANTS_COLUMN_ID_BANNER = "id_banner";
@@ -40,11 +43,11 @@ public final class HibernateConstants {
     public static final String CONSTANTS_COLUMN_STATUS = "status";
     public static final String CONSTANTS_COLUMN_TYPE = "type";
     public static final String CONSTANTS_COLUMN_IMAGES = "images";
+    public static final String CONSTANTS_COLUMN_SURNAME = "surname";
     public static final String CONSTANTS_COLUMN_IMAGE = "image";
     public static final String CONSTANTS_COLUMN_TITLE = "title";
     public static final String CONSTANTS_COLUMN_PRICE = "price";
     public static final String CONSTANTS_COLUMN_LINK = "link";
-    public static final String CONSTANTS_COLUMN_NUMBER = "number";
     public static final String CONSTANTS_COLUMN_LOGIN = "login";
     public static final String CONSTANTS_COLUMN_PASSWORD = "password";
     public static final String CONSTANTS_COLUMN_NAME = "name";
@@ -56,6 +59,7 @@ public final class HibernateConstants {
 
     public static final String CONSTANTS_MAPPED_BY_FEATURED_PRODUCTS = "featuredProducts";
     public static final String CONSTANTS_MAPPED_BY_PRODUCT = "product";
+    public static final String CONSTANTS_MAPPED_BY_PRODUCTS = "products";
     public static final String CONSTANTS_MAPPED_BY_CATEGORIES = "categories";
     public static final String CONSTANTS_MAPPED_BY_PRODUCT_INFO = "productInfo";
     public static final String CONSTANTS_MAPPED_BY_ROLES = "roles";

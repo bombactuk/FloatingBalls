@@ -11,6 +11,6 @@ public final class ParameterConstantsDao {
     public static final String CONSTANTS_PARAMETER_ID_PRODUCT = "idProduct";
     public static final String CONSTANTS_PARAMETER_QUERY = "query";
     public static final String CONSTANTS_PARAMETER_LOGIN = "login";
-
+    public static final String CONSTANTS_PARAMETER_TREATMENT= "treatment";
 
 }

@@ -13,7 +13,7 @@
 
         <jsp:include page="/WEB-INF/view/blocks/head.jsp">
 
-            <jsp:param name="title" value="ProductList" />
+            <jsp:param name="title" value="Product Info" />
 
         </jsp:include>
 
@@ -60,6 +60,18 @@
 
                     </div>
 
+                    <a href="${pageContext.request.contextPath}/addProductFeatured?idProduct=${product.idProduct}" class="product-info-button">
+
+                        <spring:message code="product_info_page.text.add.favorites" />
+
+                    </a>
+
+                    <a href="${pageContext.request.contextPath}/addProductBasket?idProduct=${product.idProduct}" class="product-info-button">
+
+                        <spring:message code="product_info_page.text.add.basket" />
+
+                    </a>
+
                 </div>
 
             </div>
@@ -70,16 +82,14 @@
 
                     <h3><spring:message code="product_info_page.text.leave" /></h3>
 
-                    <form action="/product/addReview" method="post">
-
-                        <input type="hidden" name="productId" value="${product.idProduct}">
+                    <form:form modelAttribute="addReviews" action="${pageContext.request.contextPath}/addReview?idProduct=${product.idProduct}">
 
                         <label for="reviewContent"><spring:message code="product_info_page.text.review" /></label>
-                        <textarea id="reviewContent" name="content" rows="4" required></textarea>
+                        <form:textarea id="reviewContent" path="content" rows="4" />
 
                         <button type="submit"><spring:message code="product_info_page.text.review.post" /></button>
 
-                    </form>
+                    </form:form>
 
                 </div>
 
@@ -145,6 +155,24 @@
                     }
                 }
             }
+        </script>
+
+        <script>
+
+            // Check if there's a message to display
+
+                <c:if test="${not empty successful}">
+
+                    Swal.fire({
+
+                        title: '<spring:message code="message.text" />',
+                        text: '${successful}',
+                        confirmButtonText: 'OK'
+
+                    });
+
+                </c:if>
+
         </script>
 
     </body>

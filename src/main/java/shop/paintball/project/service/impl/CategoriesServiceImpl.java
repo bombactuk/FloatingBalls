@@ -62,4 +62,20 @@ public class CategoriesServiceImpl implements CategoriesService {
 
     }
 
+    @Override
+    @Transactional
+    public void saveCategories(Categories categories) throws ServiceException {
+
+        try {
+
+            categoriesDao.saveCategories(categories);
+
+        }catch (DaoException e){
+
+            throw new ServiceException(ErrorMessageConstantsService.CONSTANTS_ERROR_MESSAGE_SAVE_CATEGORIES, e);
+
+        }
+
+    }
+
 }

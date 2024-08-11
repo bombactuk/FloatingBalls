@@ -10,6 +10,7 @@ public final class ValidationMessageConstants {
     public static final String CONSTANTS_MESSAGE_103 = "{message.error.103}";
     public static final String CONSTANTS_MESSAGE_104 = "{message.error.104}";
     public static final String CONSTANTS_MESSAGE_105 = "{message.error.105}";
+    public static final String CONSTANTS_MESSAGE_111 = "{message.error.111}";
 
 
 }

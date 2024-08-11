@@ -5,6 +5,7 @@ import shop.paintball.project.entity.Product;
 import shop.paintball.project.exception.ServiceException;
 
 import java.util.List;
+import java.util.Set;
 
 public interface ProductService {
 
@@ -17,5 +18,11 @@ public interface ProductService {
     List<Product> sortOptionsProductList(int idCategories, String sortBy) throws ServiceException;
 
     List<Product> searchProductsList(int idCategories, String query) throws ServiceException;
+
+    Set<Product> getFeaturedProducts(int idUser) throws ServiceException;
+
+    void addProductToFeatured(int idUser, int idProduct) throws ServiceException;
+
+    void removeProductFromFeatured(int idUser, int idProduct) throws ServiceException;
 
 }

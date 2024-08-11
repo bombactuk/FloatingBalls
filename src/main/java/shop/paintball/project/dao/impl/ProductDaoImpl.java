@@ -1,17 +1,20 @@
 package shop.paintball.project.dao.impl;
 
+import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import shop.paintball.project.dao.constant.ErrorMessageConstantsDao;
 import shop.paintball.project.dao.constant.ParameterConstantsDao;
+import shop.paintball.project.entity.User;
 import shop.paintball.project.exception.DaoException;
 import shop.paintball.project.dao.ProductDao;
 import shop.paintball.project.entity.ImageProduct;
 import shop.paintball.project.entity.Product;
 
 import java.util.List;
+import java.util.Set;
 
 @Repository
 public class ProductDaoImpl implements ProductDao {
@@ -44,7 +47,7 @@ public class ProductDaoImpl implements ProductDao {
 
     }
 
-    private static final String HQL_OUTPUT_OF_INFO_PRODUCT_BY_ID = "FROM Product WHERE idProduct = :idProduct";
+    private static final String HQL_OUTPUT_OF_INFO_PRODUCT_BY_ID = "FROM Product p LEFT JOIN FETCH p.images WHERE p.idProduct = :idProduct";
 
     @Override
     public Product displayingProductInformation(int idProduct) throws DaoException {
@@ -102,6 +105,69 @@ public class ProductDaoImpl implements ProductDao {
         } catch (Exception e) {
 
             throw new DaoException(ErrorMessageConstantsDao.CONSTANTS_ERROR_MESSAGE_SEARCH_PRODUCT, e);
+
+        }
+
+    }
+
+    @Override
+    public Set<Product> getFeaturedProducts(int idUser) throws DaoException {
+
+        try {
+
+            User user = getCurrentSession().get(User.class, idUser);
+            Hibernate.initialize(user.getFeaturedProducts());
+
+            for (Product product : user.getFeaturedProducts()) {
+                Hibernate.initialize(product.getImages());
+            }
+
+            return user.getFeaturedProducts();
+
+        } catch (Exception e) {
+
+            throw new DaoException(ErrorMessageConstantsDao.CONSTANTS_ERROR_MESSAGE_ALL_PRODUCT_FEATURED, e);
+
+        }
+
+    }
+
+    @Override
+    public void addProductToFeatured(int idUser, int idProduct) throws DaoException {
+
+        try {
+
+            User user = getCurrentSession().get(User.class, idUser);
+            Product product = getCurrentSession().get(Product.class, idProduct);
+
+            user.getFeaturedProducts().add(product);
+
+            getCurrentSession().update(user);
+
+        } catch (Exception e) {
+
+            throw new DaoException(ErrorMessageConstantsDao.CONSTANTS_ERROR_MESSAGE_ADD_PRODUCT_FEATURED, e);
+
+        }
+
+    }
+
+    @Override
+    public void removeProductFromFeatured(int idUser, int idProduct) throws DaoException {
+
+        try {
+
+            User user = getCurrentSession().get(User.class, idUser);
+            Product product = getCurrentSession().get(Product.class, idProduct);
+
+
+            user.getFeaturedProducts().remove(product);
+
+            getCurrentSession().update(user);
+
+        } catch (Exception e) {
+
+            throw new DaoException(ErrorMessageConstantsDao.CONSTANTS_ERROR_MESSAGE_REMOVE_PRODUCT_FEATURED, e);
 
         }
 

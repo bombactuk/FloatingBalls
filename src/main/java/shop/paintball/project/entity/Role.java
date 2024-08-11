@@ -2,7 +2,9 @@ package shop.paintball.project.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import shop.paintball.project.entity.constant.HibernateConstants;
 
 import java.util.HashSet;
@@ -10,6 +12,8 @@ import java.util.Set;
 
 @Entity
 @Data
+@ToString(exclude = "users")
+@EqualsAndHashCode(exclude = "users")
 @NoArgsConstructor
 @Table(name = HibernateConstants.CONSTANTS_TABLE_ROLES)
 public class Role {

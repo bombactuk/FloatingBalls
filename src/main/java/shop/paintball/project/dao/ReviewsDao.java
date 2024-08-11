@@ -9,4 +9,6 @@ public interface ReviewsDao {
 
     List<Reviews> displayAllProductReviews(int idProduct) throws DaoException;
 
+    void saveReviews(Reviews reviews) throws DaoException;
+
 }

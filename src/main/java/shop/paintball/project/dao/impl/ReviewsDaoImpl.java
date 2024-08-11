@@ -10,6 +10,7 @@ import shop.paintball.project.exception.DaoException;
 import shop.paintball.project.dao.ReviewsDao;
 import shop.paintball.project.entity.Reviews;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Repository
@@ -37,6 +38,21 @@ public class ReviewsDaoImpl implements ReviewsDao {
         } catch (Exception e) {
 
             throw new DaoException(ErrorMessageConstantsDao.CONSTANTS_ERROR_MESSAGE_ALL_REVIEWS, e);
+
+        }
+
+    }
+
+    @Override
+    public void saveReviews(Reviews reviews) throws DaoException {
+
+        try {
+
+            getCurrentSession().save(reviews);
+
+        }catch (Exception e){
+
+            throw new DaoException(ErrorMessageConstantsDao.CONSTANTS_ERROR_MESSAGE_SAVE_REVIEWS, e);
 
         }
 

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import shop.paintball.project.dao.CategoriesDao;
 import shop.paintball.project.dao.constant.ErrorMessageConstantsDao;
+import shop.paintball.project.dao.constant.ParameterConstantsDao;
 import shop.paintball.project.exception.DaoException;
 import shop.paintball.project.entity.Categories;
 
@@ -21,7 +22,7 @@ public class CategoriesDaoImpl implements CategoriesDao {
         return sessionFactory.getCurrentSession();
     }
 
-    private static final String HQL_OUTPUT_OF_ALL_CATEGORIES = "FROM Categories";
+    private static final String HQL_OUTPUT_OF_ALL_CATEGORIES = "FROM Categories WHERE status=:status";
 
     @Override
     public List<Categories> findAllCategories() throws DaoException {
@@ -29,7 +30,9 @@ public class CategoriesDaoImpl implements CategoriesDao {
         try {
 
             return getCurrentSession()
-                    .createQuery(HQL_OUTPUT_OF_ALL_CATEGORIES, Categories.class).list();
+                    .createQuery(HQL_OUTPUT_OF_ALL_CATEGORIES, Categories.class).setParameter(ParameterConstantsDao.CONSTANTS_PARAMETER_STATUS,
+                            ParameterConstantsDao.CONSTANTS_PARAMETER_ACTIVE)
+                    .list();
 
         } catch (Exception e) {
 
@@ -49,6 +52,21 @@ public class CategoriesDaoImpl implements CategoriesDao {
         } catch (Exception e) {
 
             throw new DaoException(ErrorMessageConstantsDao.CONSTANTS_ERROR_MESSAGE_ID_CATEGORIES, e);
+
+        }
+
+    }
+
+    @Override
+    public void saveCategories(Categories categories) throws DaoException {
+
+        try {
+
+            getCurrentSession().save(categories);
+
+        }catch (Exception e){
+
+            throw new DaoException(ErrorMessageConstantsDao.CONSTANTS_ERROR_MESSAGE_SAVE_CATEGORIES, e);
 
         }
 

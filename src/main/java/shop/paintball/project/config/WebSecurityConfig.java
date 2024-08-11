@@ -28,6 +28,7 @@ public class WebSecurityConfig {
                 )
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/showRegistrationPage", "/showAuthorizationPage", "/registerUser", "/resources/**").permitAll()
+                        .requestMatchers("/showOrderProcessing","/admin/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
                 .rememberMe(rememberMe -> rememberMe

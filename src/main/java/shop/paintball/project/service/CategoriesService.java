@@ -11,4 +11,6 @@ public interface CategoriesService {
 
     List<Categories> getAllCategoriesWithProductCount() throws ServiceException;
 
+    void saveCategories(Categories categories) throws ServiceException;
+
 }

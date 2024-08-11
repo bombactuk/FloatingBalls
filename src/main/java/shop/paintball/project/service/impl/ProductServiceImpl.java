@@ -14,6 +14,7 @@ import shop.paintball.project.service.constant.ErrorMessageConstantsService;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -114,5 +115,52 @@ public class ProductServiceImpl implements ProductService {
 
     }
 
+    @Override
+    @Transactional
+    public Set<Product> getFeaturedProducts(int idUser) throws ServiceException {
+
+        try {
+
+            return productDao.getFeaturedProducts(idUser);
+
+        } catch (DaoException e) {
+
+            throw new ServiceException(ErrorMessageConstantsService.CONSTANTS_ERROR_MESSAGE_ALL_PRODUCT_FEATURED, e);
+
+        }
+
+    }
+
+    @Override
+    @Transactional
+    public void addProductToFeatured(int idUser, int idProduct) throws ServiceException {
+
+        try {
+
+            productDao.addProductToFeatured(idUser, idProduct);
+
+        } catch (DaoException e) {
+
+            throw new ServiceException(ErrorMessageConstantsService.CONSTANTS_ERROR_MESSAGE_ADD_PRODUCT_FEATURED, e);
+
+        }
+
+    }
+
+    @Override
+    @Transactional
+    public void removeProductFromFeatured(int idUser, int idProduct) throws ServiceException {
+
+        try {
+
+            productDao.removeProductFromFeatured(idUser, idProduct);
+
+        } catch (DaoException e) {
+
+            throw new ServiceException(ErrorMessageConstantsService.CONSTANTS_ERROR_MESSAGE_REMOVE_PRODUCT_FEATURED, e);
+
+        }
+
+    }
 
 }

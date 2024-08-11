@@ -11,4 +11,6 @@ public interface CategoriesDao {
 
     Categories getCategoryById(int id) throws DaoException;
 
+    void saveCategories(Categories categories) throws DaoException;
+
 }

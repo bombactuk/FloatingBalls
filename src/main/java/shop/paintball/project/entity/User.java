@@ -4,19 +4,19 @@ package shop.paintball.project.entity;
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import shop.paintball.project.entity.constant.HibernateConstants;
 import shop.paintball.project.entity.constant.ValidationMessageConstants;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
+@ToString(exclude = {"featuredProducts", "roles"})
+@EqualsAndHashCode(exclude = {"featuredProducts", "roles"})
 @Table(name = HibernateConstants.CONSTANTS_TABLE_USERS)
 public class User {
 

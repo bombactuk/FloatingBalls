@@ -44,8 +44,10 @@
                             <ul>
 
                                 <li><a href="${pageContext.request.contextPath}/showProfileUserPage"><spring:message code="header.text.profile" /></a></li>
-                                <li><a href="${pageContext.request.contextPath}/showAboutUsPage">bnm</a></li>
-                                <li><a href="${pageContext.request.contextPath}/showCatalogPage">vvcv</a></li>
+                                <li><a href="${pageContext.request.contextPath}/showProductFeaturedPage"><spring:message code="header.text.favorites" /></a></li>
+                                <li><a href="${pageContext.request.contextPath}/showBasketPage"><spring:message code="header.text.basket" /></a></li>
+                                <li><a href="${pageContext.request.contextPath}/showPurchaseHistory"><spring:message code="header.text.purchase.history" /></a></li>
+                                <li><a href="${pageContext.request.contextPath}/showOrderProcessing">Обработка заказов</a></li>
 
                             </ul>
 

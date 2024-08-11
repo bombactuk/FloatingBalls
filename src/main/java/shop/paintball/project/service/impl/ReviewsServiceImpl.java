@@ -34,4 +34,20 @@ public class ReviewsServiceImpl implements ReviewsService {
 
     }
 
+    @Override
+    @Transactional
+    public void saveReviews(Reviews reviews) throws ServiceException {
+
+        try {
+
+            reviewsDao.saveReviews(reviews);
+
+        }catch (DaoException e){
+
+            throw new ServiceException(ErrorMessageConstantsService.CONSTANTS_ERROR_MESSAGE_SAVE_REVIEWS, e);
+
+        }
+
+    }
+
 }

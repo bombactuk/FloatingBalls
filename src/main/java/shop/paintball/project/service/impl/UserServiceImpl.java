@@ -7,12 +7,15 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import shop.paintball.project.entity.CustomUserDetails;
+import shop.paintball.project.entity.Product;
 import shop.paintball.project.exception.DaoException;
 import shop.paintball.project.dao.UserDao;
 import shop.paintball.project.entity.User;
 import shop.paintball.project.exception.ServiceException;
 import shop.paintball.project.service.UserService;
 import shop.paintball.project.service.constant.ErrorMessageConstantsService;
+
+import java.util.Set;
 
 @Service
 public class UserServiceImpl implements UserService {
