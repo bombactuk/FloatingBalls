@@ -31,7 +31,8 @@ public class BannerDaoImpl implements BannerDao {
 
             return getCurrentSession()
                     .createQuery(HQL_OUTPUT_OF_ALL_BANNERS, Banner.class)
-                    .setParameter(ParameterConstantsDao.CONSTANTS_PARAMETER_STATUS, ParameterConstantsDao.CONSTANTS_PARAMETER_ACTIVE)
+                    .setParameter(ParameterConstantsDao.CONSTANTS_PARAMETER_STATUS,
+                            ParameterConstantsDao.CONSTANTS_PARAMETER_ACTIVE)
                     .list();
 
         } catch (Exception e) {

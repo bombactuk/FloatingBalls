@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <!DOCTYPE html>
 
@@ -87,7 +88,7 @@
 
                         <div class="modal-body">
 
-                            <form:form action="${pageContext.request.contextPath}/admin/addCategories" modelAttribute="addCategories" >
+                            <form:form action="${pageContext.request.contextPath}/addCategories" modelAttribute="addCategories" >
 
                                 <div class="form-group">
 

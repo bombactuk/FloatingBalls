@@ -47,7 +47,13 @@
                                 <li><a href="${pageContext.request.contextPath}/showProductFeaturedPage"><spring:message code="header.text.favorites" /></a></li>
                                 <li><a href="${pageContext.request.contextPath}/showBasketPage"><spring:message code="header.text.basket" /></a></li>
                                 <li><a href="${pageContext.request.contextPath}/showPurchaseHistory"><spring:message code="header.text.purchase.history" /></a></li>
-                                <li><a href="${pageContext.request.contextPath}/showOrderProcessing">Обработка заказов</a></li>
+
+                                <sec:authorize access="hasRole('ADMIN')">
+
+                                    <li><a href="${pageContext.request.contextPath}/showOrderProcessing"><spring:message code="header.text.order.processing" /></a></li>
+                                    <li><a href="${pageContext.request.contextPath}/showOrderSending"><spring:message code="header.text.order.sending" /></a></li>
+
+                                </sec:authorize>
 
                             </ul>
 

@@ -3,7 +3,6 @@ package shop.paintball.project.controller;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.context.MessageSource;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import shop.paintball.project.controller.constant.EndpointConstants;
 import shop.paintball.project.controller.constant.EntityConstants;
 import shop.paintball.project.controller.constant.ErrorMessageConstantsController;
@@ -122,12 +120,14 @@ public class PageTransitionController {
     }
 
     @RequestMapping("/showCatalogPage")
-    public String catalogPage(@RequestParam(value = EntityConstants.CONSTANTS_ENTITY_MESSAGE, required = false) String message,
+    public String catalogPage(@RequestParam(value = EntityConstants.CONSTANTS_ENTITY_MESSAGE, required = false)
+                              String message,
                               Model theModel) {
 
         try {
 
-            theModel.addAttribute(EntityConstants.CONSTANTS_ENTITY_CATEGORIES, categoriesService.getAllCategoriesWithProductCount());
+            theModel.addAttribute(EntityConstants.CONSTANTS_ENTITY_CATEGORIES,
+                    categoriesService.getAllCategoriesWithProductCount());
             theModel.addAttribute(EntityConstants.CONSTANTS_ENTITY_ADD_CATEGORIES, new Categories());
             theModel.addAttribute(MessagePropertiesConstants.CONSTANTS_MESSAGE_SUCCESSFUL, message);
 
@@ -143,11 +143,13 @@ public class PageTransitionController {
     }
 
     @RequestMapping("/showProductListPage")
-    public String productListPage(@RequestParam(EntityConstants.CONSTANTS_ENTITY_CATEGORIES_ID) int idCategories, Model theModel) {
+    public String productListPage(@RequestParam(EntityConstants.CONSTANTS_ENTITY_CATEGORIES_ID) int idCategories,
+                                  Model theModel) {
 
         try {
 
-            theModel.addAttribute(EntityConstants.CONSTANTS_ENTITY_PRODUCTS, productService.listOfProductsByCategory(idCategories));
+            theModel.addAttribute(EntityConstants.CONSTANTS_ENTITY_PRODUCTS,
+                    productService.listOfProductsByCategory(idCategories));
             theModel.addAttribute(EntityConstants.CONSTANTS_ENTITY_CATEGORIES_ID, idCategories);
 
             return EndpointConstants.CONSTANTS_PAGE_PRODUCT_LIST;
@@ -163,14 +165,18 @@ public class PageTransitionController {
     @RequestMapping("/showProductInfoPage")
     public String productInfoPage(@AuthenticationPrincipal CustomUserDetails userDetails,
                                   @RequestParam(EntityConstants.CONSTANTS_ENTITY_PRODUCTS_ID) int idProduct,
-                                  @RequestParam(value = EntityConstants.CONSTANTS_ENTITY_MESSAGE, required = false) String message,
+                                  @RequestParam(value = EntityConstants.CONSTANTS_ENTITY_MESSAGE, required = false)
+                                  String message,
                                   Model theModel) {
 
         try {
 
-            theModel.addAttribute(EntityConstants.CONSTANTS_ENTITY_PRODUCT, productService.displayingProductInformation(idProduct));
-            theModel.addAttribute(EntityConstants.CONSTANTS_ENTITY_PRODUCT_IMAGES, productService.getImagesByProductId(idProduct));
-            theModel.addAttribute(EntityConstants.CONSTANTS_ENTITY_REVIEWS, reviewsService.displayAllProductReviews(idProduct));
+            theModel.addAttribute(EntityConstants.CONSTANTS_ENTITY_PRODUCT,
+                    productService.displayingProductInformation(idProduct));
+            theModel.addAttribute(EntityConstants.CONSTANTS_ENTITY_PRODUCT_IMAGES,
+                    productService.getImagesByProductId(idProduct));
+            theModel.addAttribute(EntityConstants.CONSTANTS_ENTITY_REVIEWS,
+                    reviewsService.displayAllProductReviews(idProduct));
             theModel.addAttribute(EntityConstants.CONSTANTS_ENTITY_ADD_REVIEWS, new Reviews());
             theModel.addAttribute(MessagePropertiesConstants.CONSTANTS_MESSAGE_SUCCESSFUL, message);
 
@@ -195,7 +201,8 @@ public class PageTransitionController {
 
     @RequestMapping("/showProductFeaturedPage")
     public String showFeaturedProducts(@AuthenticationPrincipal CustomUserDetails userDetails,
-                                       @RequestParam(value = EntityConstants.CONSTANTS_ENTITY_MESSAGE, required = false) String message,
+                                       @RequestParam(value = EntityConstants.CONSTANTS_ENTITY_MESSAGE, required = false)
+                                       String message,
                                        Model theModel) {
 
         try {
@@ -218,7 +225,8 @@ public class PageTransitionController {
 
     @RequestMapping("/showBasketPage")
     public String showBasket(Model theModel, HttpSession session,
-                             @RequestParam(value = EntityConstants.CONSTANTS_ENTITY_MESSAGE, required = false) String message) {
+                             @RequestParam(value = EntityConstants.CONSTANTS_ENTITY_MESSAGE, required = false)
+                             String message) {
 
         List<Product> basket = (List<Product>) session.getAttribute(EntityConstants.CONSTANTS_ENTITY_BASKET);
 
@@ -257,7 +265,8 @@ public class PageTransitionController {
                 String message = messageSource.getMessage(MessagePropertiesConstants.CONSTANTS_MESSAGE_ERROR_PRODUCT_BASKET,
                         null, locale);
 
-                return EndpointConstants.CONSTANTS_REDIRECT_BASKET + "?message=" + URLEncoder.encode(message, StandardCharsets.UTF_8);
+                return EndpointConstants.CONSTANTS_REDIRECT_BASKET + "?message=" + URLEncoder.encode(message,
+                        StandardCharsets.UTF_8);
 
             }
 
@@ -304,7 +313,8 @@ public class PageTransitionController {
 
             List<Order> orders = orderService.findOrdersByUser(userDetails.getUser());
 
-            theModel.addAttribute(EntityConstants.CONSTANTS_ENTITY_ORDERS, orders.stream().sorted(Comparator.comparing(Order::getDatePost))
+            theModel.addAttribute(EntityConstants.CONSTANTS_ENTITY_ORDERS, orders.stream()
+                    .sorted(Comparator.comparing(Order::getDatePost))
                     .collect(Collectors.toList()));
 
             return EndpointConstants.CONSTANTS_PAGE_PURCHASE_HISTORY;
@@ -352,26 +362,6 @@ public class PageTransitionController {
         } catch (ServiceException e) {
 
             throw new ControllerException(ErrorMessageConstantsController.CONSTANTS_ERROR_MESSAGE_SAVE_REVIEWS, e);
-
-        }
-
-    }
-
-    @RequestMapping("/showOrderProcessing")
-    public String showOrderProcessing(Model theModel) {
-
-        try {
-
-            List<Order> orders = orderService.outputOfOrdersForProcessing();
-
-            theModel.addAttribute(EntityConstants.CONSTANTS_ENTITY_ORDERS,orders.stream().sorted(Comparator.comparing(Order::getDatePost))
-                    .collect(Collectors.toList()));
-
-            return EndpointConstants.CONSTANTS_PAGE_ORDER_PROCESSING;
-
-        } catch (ServiceException e) {
-
-            throw new ControllerException(ErrorMessageConstantsController.CONSTANTS_ERROR_MESSAGE_ALL_ORDER_FOR_PROCESSING, e);
 
         }
 

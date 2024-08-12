@@ -1,7 +1,6 @@
 package shop.paintball.project.controller;
 
 import jakarta.servlet.http.HttpSession;
-import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.context.MessageSource;
@@ -23,7 +22,6 @@ import shop.paintball.project.exception.ServiceException;
 import shop.paintball.project.service.ProductService;
 import shop.paintball.project.service.ReviewsService;
 
-import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -51,12 +49,15 @@ public class ProductController {
     }
 
     @RequestMapping("/sortProductList")
-    public String sortProductList(@RequestParam(value = EntityConstants.CONSTANTS_ENTITY_CATEGORIES_SORT_BY, required = false) String sortBy,
-                                  @RequestParam(EntityConstants.CONSTANTS_ENTITY_CATEGORIES_ID) int idCategories, Model theModel) {
+    public String sortProductList(@RequestParam(value = EntityConstants.CONSTANTS_ENTITY_CATEGORIES_SORT_BY, required = false)
+                                  String sortBy,
+                                  @RequestParam(EntityConstants.CONSTANTS_ENTITY_CATEGORIES_ID) int idCategories,
+                                  Model theModel) {
 
         try {
 
-            theModel.addAttribute(EntityConstants.CONSTANTS_ENTITY_PRODUCTS, productService.sortOptionsProductList(idCategories, sortBy));
+            theModel.addAttribute(EntityConstants.CONSTANTS_ENTITY_PRODUCTS,
+                    productService.sortOptionsProductList(idCategories, sortBy));
             theModel.addAttribute(EntityConstants.CONSTANTS_ENTITY_CATEGORIES_ID, idCategories);
 
             return EndpointConstants.CONSTANTS_PAGE_PRODUCT_LIST;
@@ -70,18 +71,22 @@ public class ProductController {
     }
 
     @RequestMapping("/searchProductsList")
-    public String searchProductsList(@RequestParam(value = EntityConstants.CONSTANTS_ENTITY_CATEGORIES_QUERY, required = false) String query,
-                                     @RequestParam(EntityConstants.CONSTANTS_ENTITY_CATEGORIES_ID) int idCategories, Model theModel) {
+    public String searchProductsList(@RequestParam(value = EntityConstants.CONSTANTS_ENTITY_CATEGORIES_QUERY, required = false)
+                                     String query,
+                                     @RequestParam(EntityConstants.CONSTANTS_ENTITY_CATEGORIES_ID) int idCategories,
+                                     Model theModel) {
 
         try {
 
             if (query == null) {
 
-                theModel.addAttribute(EntityConstants.CONSTANTS_ENTITY_PRODUCTS, productService.listOfProductsByCategory(idCategories));
+                theModel.addAttribute(EntityConstants.CONSTANTS_ENTITY_PRODUCTS,
+                        productService.listOfProductsByCategory(idCategories));
 
             } else {
 
-                theModel.addAttribute(EntityConstants.CONSTANTS_ENTITY_PRODUCTS, productService.searchProductsList(idCategories, query));
+                theModel.addAttribute(EntityConstants.CONSTANTS_ENTITY_PRODUCTS,
+                        productService.searchProductsList(idCategories, query));
 
             }
 
@@ -106,8 +111,8 @@ public class ProductController {
 
             productService.addProductToFeatured(userDetails.getUser().getIdUser(), idProduct);
 
-            String message = messageSource.getMessage(MessagePropertiesConstants.CONSTANTS_MESSAGE_ADD_PRODUCT_FEATURED_SUCCESSFUL,
-                    null, locale);
+            String message = messageSource.getMessage(
+                    MessagePropertiesConstants.CONSTANTS_MESSAGE_ADD_PRODUCT_FEATURED_SUCCESSFUL, null, locale);
 
             return EndpointConstants.CONSTANTS_REDIRECT_PRODUCT_INFO + "?idProduct=" + idProduct +
                     "&message=" + URLEncoder.encode(message, StandardCharsets.UTF_8);
@@ -129,8 +134,8 @@ public class ProductController {
 
             productService.removeProductFromFeatured(userDetails.getUser().getIdUser(), idProduct);
 
-            String message = messageSource.getMessage(MessagePropertiesConstants.CONSTANTS_MESSAGE_REMOVE_PRODUCT_FEATURED_SUCCESSFUL,
-                    null, locale);
+            String message = messageSource.getMessage(
+                    MessagePropertiesConstants.CONSTANTS_MESSAGE_REMOVE_PRODUCT_FEATURED_SUCCESSFUL, null, locale);
 
             return EndpointConstants.CONSTANTS_REDIRECT_PRODUCT_FEATURED +
                     "?message=" + URLEncoder.encode(message, StandardCharsets.UTF_8);
@@ -163,8 +168,8 @@ public class ProductController {
 
             session.setAttribute(EntityConstants.CONSTANTS_ENTITY_BASKET, basket);
 
-            String message = messageSource.getMessage(MessagePropertiesConstants.CONSTANTS_MESSAGE_ADD_PRODUCT_BASKET_SUCCESSFUL,
-                    null, locale);
+            String message = messageSource.getMessage(
+                    MessagePropertiesConstants.CONSTANTS_MESSAGE_ADD_PRODUCT_BASKET_SUCCESSFUL, null, locale);
 
             return EndpointConstants.CONSTANTS_REDIRECT_PRODUCT_INFO + "?idProduct=" + idProduct
                     + "&message=" + URLEncoder.encode(message, StandardCharsets.UTF_8);
@@ -192,12 +197,13 @@ public class ProductController {
 
                 session.setAttribute(EntityConstants.CONSTANTS_ENTITY_BASKET, basket);
 
-                message = messageSource.getMessage(MessagePropertiesConstants.CONSTANTS_MESSAGE_REMOVE_PRODUCT_BASKET_SUCCESSFUL,
-                        null, locale);
+                message = messageSource.getMessage(
+                        MessagePropertiesConstants.CONSTANTS_MESSAGE_REMOVE_PRODUCT_BASKET_SUCCESSFUL, null, locale);
 
             }
 
-            return EndpointConstants.CONSTANTS_REDIRECT_BASKET + "?message=" + URLEncoder.encode(message, StandardCharsets.UTF_8);
+            return EndpointConstants.CONSTANTS_REDIRECT_BASKET + "?message=" +
+                    URLEncoder.encode(message, StandardCharsets.UTF_8);
 
         } catch (ServiceException e) {
 

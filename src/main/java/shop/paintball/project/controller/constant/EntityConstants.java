@@ -35,9 +35,12 @@ public final class EntityConstants {
 
     public static final String CONSTANTS_ENTITY_ORDER_STATUS = "treatment";
     public static final String CONSTANTS_ENTITY_ORDER = "order";
-    public static final String CONSTANTS_ENTITY_ORDERS="orders";
+    public static final String CONSTANTS_ENTITY_ORDERS = "orders";
+    public static final String CONSTANTS_ENTITY_PROCESSING_ORDER = "processingOrder";
+    public static final String CONSTANTS_ENTITY_ORDER_ID = "idOrder";
+    public static final String CONSTANTS_ENTITY_ORDER_STATUS_GETTING = "Готовится к отправке";
 
-    public static final String CONSTANTS_ENTITY_ERROR_MESSAGE="message";
-    public static final String CONSTANTS_ENTITY_MESSAGE="message";
+    public static final String CONSTANTS_ENTITY_ERROR_MESSAGE = "message";
+    public static final String CONSTANTS_ENTITY_MESSAGE = "message";
 
 }

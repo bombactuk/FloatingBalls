@@ -57,7 +57,8 @@ public class UserController {
             if (userService.checkingAnExistingUserByEmail(user.getLogin()) != null) {
 
                 model.addAttribute(MessagePropertiesConstants.CONSTANTS_MESSAGE_ERROR_NOT_MAIL,
-                        messageSource.getMessage(MessagePropertiesConstants.CONSTANTS_MESSAGE_PROPERTIES_ERROR_NOT_MAIL, null, locale));
+                        messageSource.getMessage(MessagePropertiesConstants.CONSTANTS_MESSAGE_PROPERTIES_ERROR_NOT_MAIL,
+                                null, locale));
 
                 return EndpointConstants.CONSTANTS_PAGE_REGISTRATION;
 
@@ -74,7 +75,8 @@ public class UserController {
             if (userService.userRegistration(user)) {
 
                 model.addAttribute(MessagePropertiesConstants.CONSTANTS_MESSAGE_SUCCESSFUL_REGISTRATION,
-                        messageSource.getMessage(MessagePropertiesConstants.CONSTANTS_MESSAGE_PROPERTIES_SUCCESSFUL_REGISTRATION,
+                        messageSource.getMessage(
+                                MessagePropertiesConstants.CONSTANTS_MESSAGE_PROPERTIES_SUCCESSFUL_REGISTRATION,
                                 null, locale));
 
                 return EndpointConstants.CONSTANTS_PAGE_AUTHORIZATION;
@@ -82,7 +84,9 @@ public class UserController {
             } else {
 
                 model.addAttribute(MessagePropertiesConstants.CONSTANTS_MESSAGE_ERROR_REGISTRATION,
-                        messageSource.getMessage(MessagePropertiesConstants.CONSTANTS_MESSAGE_PROPERTIES_REGISTRATION, null, locale));
+                        messageSource.getMessage(
+                                MessagePropertiesConstants.CONSTANTS_MESSAGE_PROPERTIES_REGISTRATION,
+                                null, locale));
 
                 return EndpointConstants.CONSTANTS_PAGE_REGISTRATION;
 

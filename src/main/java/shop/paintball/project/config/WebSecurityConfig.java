@@ -27,8 +27,10 @@ public class WebSecurityConfig {
                         .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
                 )
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/showRegistrationPage", "/showAuthorizationPage", "/registerUser", "/resources/**").permitAll()
-                        .requestMatchers("/showOrderProcessing","/admin/**").hasRole("ADMIN")
+                        .requestMatchers("/resources/**").permitAll()
+                        .requestMatchers("/showRegistrationPage", "/showAuthorizationPage", "/registerUser").permitAll()
+                        .requestMatchers("/showOrderSending", "/showOrderProcessing", "/addCategories",
+                                "/processingOrder", "/sendingOrder").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
                 .rememberMe(rememberMe -> rememberMe

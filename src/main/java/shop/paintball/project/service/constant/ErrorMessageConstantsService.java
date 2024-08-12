@@ -48,7 +48,17 @@ public final class ErrorMessageConstantsService {
             "when all order";
     public static final String CONSTANTS_ERROR_MESSAGE_ALL_ORDER_FOR_PROCESSING = "Error at the service level " +
             "when all order for processing";
+    public static final String CONSTANTS_ERROR_MESSAGE_ALL_ORDER_FOR_SENDING = "Error at the service level " +
+            "when all order for sending";
     public static final String CONSTANTS_ERROR_MESSAGE_SAVE_CATEGORIES = "Error at the service level " +
             "when save categories";
+    public static final String CONSTANTS_ERROR_MESSAGE_SAVE_ORDER_SHIPPING = "Error at the service level " +
+            "when save order shipping";
+    public static final String CONSTANTS_ERROR_MESSAGE_ALL_ORDER_FOR_ID = "Error at the service level " +
+            "when all order for id";
+    public static final String CONSTANTS_ERROR_MESSAGE_UPDATE_ORDER_STATUS = "Error at the service level " +
+            "when update order for status";
+    public static final String CONSTANTS_ERROR_MESSAGE_SAVE_ORDER_SENDING = "Error at the service level " +
+            "when save order sending";
 
 }

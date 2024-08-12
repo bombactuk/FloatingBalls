@@ -23,6 +23,7 @@ public final class HibernateConstants {
     public static final String CONSTANTS_TABLE_IMAGES_PRODUCT = "images_product";
     public static final String CONSTANTS_TABLE_PRODUCT_FEATURED = "featured_products";
     public static final String CONSTANTS_TABLE_ORDER = "orders";
+    public static final String CONSTANTS_TABLE_ORDER_SHIPPING = "orders-shipping";
 
     public static final String CONSTANTS_COLUMN_ID_SHOP = "id_shop";
     public static final String CONSTANTS_COLUMN_ID_ADMIN = "id_admin";
@@ -34,6 +35,7 @@ public final class HibernateConstants {
     public static final String CONSTANTS_COLUMN_ID_ROLE = "id_role";
     public static final String CONSTANTS_COLUMN_ID_SOCIAL_MEDIA = "id_social_media";
     public static final String CONSTANTS_COLUMN_ID_ORDER = "id_order";
+    public static final String CONSTANTS_COLUMN_ID_ORDER_SHIPPING = "id_order_shipping";
     public static final String CONSTANTS_COLUMN_ID_UPDATES = "id_updates";
     public static final String CONSTANTS_COLUMN_ID_INFO_USER = "id_info_user";
     public static final String CONSTANTS_COLUMN_ID_BANNER = "id_banner";
@@ -56,6 +58,9 @@ public final class HibernateConstants {
     public static final String CONSTANTS_COLUMN_ADDRESS = "address";
     public static final String CONSTANTS_COLUMN_CONTACTS = "contacts";
     public static final String CONSTANTS_COLUMN_OPERATING = "operating_mode";
+    public static final String CONSTANTS_COLUMN_COUNTRY = "country";
+    public static final String CONSTANTS_COLUMN_POSTAL_CODE = "postal_code";
+    public static final String CONSTANTS_COLUMN_TRACKING_INDEX = "tracking_index";
 
     public static final String CONSTANTS_MAPPED_BY_FEATURED_PRODUCTS = "featuredProducts";
     public static final String CONSTANTS_MAPPED_BY_PRODUCT = "product";
@@ -64,6 +69,7 @@ public final class HibernateConstants {
     public static final String CONSTANTS_MAPPED_BY_PRODUCT_INFO = "productInfo";
     public static final String CONSTANTS_MAPPED_BY_ROLES = "roles";
     public static final String CONSTANTS_MAPPED_BY_USER = "user";
+    public static final String CONSTANTS_MAPPED_BY_ORDER = "order";
     public static final String CONSTANTS_MAPPED_BY_INFO_USER = "infoUser";
 
 }

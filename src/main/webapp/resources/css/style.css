@@ -62,14 +62,14 @@ header nav ul li {
 }
 
 header nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    transition: color 0.3s;
+    color: white !important;
+    text-decoration: none !important;
+    font-size: 16px !important;
+    transition: color 0.3s !important;
 }
 
 header nav ul li a:hover {
-    color: #ddd;
+    color: #ddd !important;
 }
 
 .auth-links {
@@ -673,8 +673,8 @@ header nav ul li button:hover {
 }
 
 .category-item a {
-    text-decoration: none;
-    color: inherit;
+    text-decoration: none !important;
+    color: inherit !important;
 }
 
 .category-text-p {
@@ -765,9 +765,9 @@ header nav ul li button:hover {
 }
 
 .product-card-link {
-    text-decoration: none;
-    color: inherit;
-    display: block;
+    text-decoration: none !important;
+    color: inherit !important;
+    display: block !important;
 }
 
 .sort-panel {
@@ -1488,7 +1488,7 @@ header nav ul li button:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     border: 1px solid #ddd;
-    margin-top: 260px;
+    margin-top: 400px;
 }
 
 .order-header-processing {
@@ -1535,5 +1535,65 @@ header nav ul li button:hover {
 }
 
 .order-card-processing ul li:last-child {
+    border-bottom: none;
+}
+
+/* Стиль для страницы отправка товара */
+
+.order-container-sending {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(60, 60, 60, 0.8);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-top: 400px;
+}
+
+.order-header-sending {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.order-cards-sending {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.order-card-sending {
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    min-width: 200px;
+}
+
+.order-card-sending h2 {
+    margin-top: 0;
+    color: #007bff;
+}
+
+.order-card-sending p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.order-card-sending ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.order-card-sending ul li {
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.order-card-sending ul li:last-child {
     border-bottom: none;
 }

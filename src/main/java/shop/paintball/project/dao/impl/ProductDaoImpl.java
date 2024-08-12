@@ -47,7 +47,8 @@ public class ProductDaoImpl implements ProductDao {
 
     }
 
-    private static final String HQL_OUTPUT_OF_INFO_PRODUCT_BY_ID = "FROM Product p LEFT JOIN FETCH p.images WHERE p.idProduct = :idProduct";
+    private static final String HQL_OUTPUT_OF_INFO_PRODUCT_BY_ID = "FROM Product p LEFT JOIN FETCH p.images " +
+            "WHERE p.idProduct = :idProduct";
 
     @Override
     public Product displayingProductInformation(int idProduct) throws DaoException {

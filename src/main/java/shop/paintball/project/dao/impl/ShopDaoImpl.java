@@ -31,7 +31,8 @@ public class ShopDaoImpl implements ShopDao {
 
             return getCurrentSession()
                     .createQuery(HQL_OUTPUT_OF_ALL_SHOPS, Shop.class)
-                    .setParameter(ParameterConstantsDao.CONSTANTS_PARAMETER_STATUS, ParameterConstantsDao.CONSTANTS_PARAMETER_ACTIVE)
+                    .setParameter(ParameterConstantsDao.CONSTANTS_PARAMETER_STATUS,
+                            ParameterConstantsDao.CONSTANTS_PARAMETER_ACTIVE)
                     .list();
 
         } catch (Exception e) {

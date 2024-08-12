@@ -19,12 +19,17 @@ public final class ErrorMessageConstantsDao {
     public static final String CONSTANTS_ERROR_MESSAGE_ALL_UPDATES = "Error receiving all update";
     public static final String CONSTANTS_ERROR_MESSAGE_CHECKING_USER = "Error checking there is a user with this email";
     public static final String CONSTANTS_ERROR_MESSAGE_SAVE_USER = "Error saving user";
-    public static final String CONSTANTS_ERROR_MESSAGE_ADD_PRODUCT_FEATURED= "Error add product featured";
-    public static final String CONSTANTS_ERROR_MESSAGE_ALL_PRODUCT_FEATURED= "Error all products featured";
-    public static final String CONSTANTS_ERROR_MESSAGE_REMOVE_PRODUCT_FEATURED= "Error remove product featured";
-    public static final String CONSTANTS_ERROR_MESSAGE_SAVE_ORDER= "Error save order";
-    public static final String CONSTANTS_ERROR_MESSAGE_ALL_ORDER= "Error all order";
-    public static final String CONSTANTS_ERROR_MESSAGE_ALL_ORDER_FOR_PROCESSING= "Error all order for processing";
-    public static final String CONSTANTS_ERROR_MESSAGE_SAVE_CATEGORIES= "Error saving categories";
+    public static final String CONSTANTS_ERROR_MESSAGE_ADD_PRODUCT_FEATURED = "Error add product featured";
+    public static final String CONSTANTS_ERROR_MESSAGE_ALL_PRODUCT_FEATURED = "Error all products featured";
+    public static final String CONSTANTS_ERROR_MESSAGE_REMOVE_PRODUCT_FEATURED = "Error remove product featured";
+    public static final String CONSTANTS_ERROR_MESSAGE_SAVE_ORDER = "Error save order";
+    public static final String CONSTANTS_ERROR_MESSAGE_ALL_ORDER = "Error all order";
+    public static final String CONSTANTS_ERROR_MESSAGE_ALL_ORDER_FOR_PROCESSING = "Error all order for processing";
+    public static final String CONSTANTS_ERROR_MESSAGE_ALL_ORDER_FOR_SENDING = "Error all order for sending";
+    public static final String CONSTANTS_ERROR_MESSAGE_ALL_ORDER_FOR_ID = "Error all order for id";
+    public static final String CONSTANTS_ERROR_MESSAGE_SAVE_CATEGORIES = "Error saving categories";
+    public static final String CONSTANTS_ERROR_MESSAGE_SAVE_ORDER_SHIPPING = "Error saving order shipping";
+    public static final String CONSTANTS_ERROR_MESSAGE_UPDATE_ORDER_STATUS = "Error update order status";
+    public static final String CONSTANTS_ERROR_MESSAGE_SAVE_ORDER_SENDING = "Error saving order sending";
 
 }

@@ -41,5 +41,7 @@ public final class ErrorMessageConstantsController {
             "when save reviews";
     public static final String CONSTANTS_ERROR_MESSAGE_ADD_CATEGORIES = "Error at controller level " +
             "when add categories";
+    public static final String CONSTANTS_ERROR_MESSAGE_SAVE_ORDER_SHIPPING = "Error at controller level " +
+            "when save order shipping";
 
 }

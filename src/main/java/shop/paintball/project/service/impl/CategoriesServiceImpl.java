@@ -70,7 +70,7 @@ public class CategoriesServiceImpl implements CategoriesService {
 
             categoriesDao.saveCategories(categories);
 
-        }catch (DaoException e){
+        } catch (DaoException e) {
 
             throw new ServiceException(ErrorMessageConstantsService.CONSTANTS_ERROR_MESSAGE_SAVE_CATEGORIES, e);
 

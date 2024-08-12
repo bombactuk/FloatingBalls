@@ -46,6 +46,12 @@
                             <p><spring:message code="purchase_history.text.order.status" /> ${order.status}</p>
                             <p><spring:message code="purchase_history.text.order.date" />${order.datePost}</p>
 
+                            <c:if test="${not empty order.trackingIndex}">
+
+                                <p><spring:message code="purchase_history.text.order.tracking" />${order.trackingIndex}</p>
+
+                            </c:if>
+
                             <h3><spring:message code="purchase_history.text.order.products" /></h3>
 
                             <ul>

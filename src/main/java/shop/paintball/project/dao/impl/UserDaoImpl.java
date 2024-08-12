@@ -1,7 +1,6 @@
 package shop.paintball.project.dao.impl;
 
 
-import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +8,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Repository;
 import shop.paintball.project.dao.constant.ErrorMessageConstantsDao;
 import shop.paintball.project.dao.constant.ParameterConstantsDao;
-import shop.paintball.project.entity.Product;
 import shop.paintball.project.exception.DaoException;
 import shop.paintball.project.dao.UserDao;
 import shop.paintball.project.entity.User;
@@ -33,6 +31,7 @@ public class UserDaoImpl implements UserDao {
     public boolean userRegistration(User userRegistration) throws DaoException {
 
         try {
+
             userRegistration.setPassword(passwordEncoder.encode(userRegistration.getPassword()));
 
             getCurrentSession().save(userRegistration);

@@ -32,4 +32,11 @@ public final class MessagePropertiesConstants {
     public static final String CONSTANTS_MESSAGE_ERROR_SAVE_CATEGORIES = "message.error.112";
     public static final String CONSTANTS_MESSAGE_SAVE_CATEGORIES = "message.categories.101";
 
+    public static final String CONSTANTS_MESSAGE_ERROR_SAVE_ORDER_SHIPPING = "message.error.113";
+    public static final String CONSTANTS_MESSAGE_SAVE_ORDER_SHIPPING = "message.order.shipping.101";
+
+    public static final String CONSTANTS_MESSAGE_ERROR_SAVE_ORDER_SENDING = "message.error.114";
+    public static final String CONSTANTS_MESSAGE_SAVE_ORDER_SENDING = "message.order.sending.101";
+
+
 }

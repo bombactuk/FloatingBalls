@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.ModelAndView;
 import shop.paintball.project.controller.constant.EndpointConstants;
 import shop.paintball.project.controller.constant.EntityConstants;
-import shop.paintball.project.controller.constant.ErrorMessageConstantsController;
 import shop.paintball.project.controller.constant.MessagePropertiesConstants;
 import shop.paintball.project.exception.ControllerException;
 import shop.paintball.project.exception.DaoException;

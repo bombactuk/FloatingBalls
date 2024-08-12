@@ -30,7 +30,8 @@ public class CategoriesDaoImpl implements CategoriesDao {
         try {
 
             return getCurrentSession()
-                    .createQuery(HQL_OUTPUT_OF_ALL_CATEGORIES, Categories.class).setParameter(ParameterConstantsDao.CONSTANTS_PARAMETER_STATUS,
+                    .createQuery(HQL_OUTPUT_OF_ALL_CATEGORIES, Categories.class)
+                    .setParameter(ParameterConstantsDao.CONSTANTS_PARAMETER_STATUS,
                             ParameterConstantsDao.CONSTANTS_PARAMETER_ACTIVE)
                     .list();
 
@@ -64,7 +65,7 @@ public class CategoriesDaoImpl implements CategoriesDao {
 
             getCurrentSession().save(categories);
 
-        }catch (Exception e){
+        } catch (Exception e) {
 
             throw new DaoException(ErrorMessageConstantsDao.CONSTANTS_ERROR_MESSAGE_SAVE_CATEGORIES, e);
 

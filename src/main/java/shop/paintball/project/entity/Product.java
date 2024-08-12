@@ -42,7 +42,7 @@ public class Product {
     @JoinColumn(name = HibernateConstants.CONSTANTS_COLUMN_ID_CATEGORIES)
     private Categories categories;
 
-    @ManyToMany(mappedBy = HibernateConstants.CONSTANTS_MAPPED_BY_FEATURED_PRODUCTS,fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = HibernateConstants.CONSTANTS_MAPPED_BY_FEATURED_PRODUCTS, fetch = FetchType.LAZY)
     private Set<User> users = new HashSet<>();
 
     @OneToMany(mappedBy = HibernateConstants.CONSTANTS_MAPPED_BY_PRODUCT, cascade = CascadeType.ALL)

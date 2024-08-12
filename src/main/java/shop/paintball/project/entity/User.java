@@ -9,7 +9,6 @@ import shop.paintball.project.entity.constant.HibernateConstants;
 import shop.paintball.project.entity.constant.ValidationMessageConstants;
 
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 @Entity

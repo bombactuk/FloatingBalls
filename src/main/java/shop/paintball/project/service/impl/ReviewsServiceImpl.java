@@ -42,7 +42,7 @@ public class ReviewsServiceImpl implements ReviewsService {
 
             reviewsDao.saveReviews(reviews);
 
-        }catch (DaoException e){
+        } catch (DaoException e) {
 
             throw new ServiceException(ErrorMessageConstantsService.CONSTANTS_ERROR_MESSAGE_SAVE_REVIEWS, e);
 
