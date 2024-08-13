@@ -163,4 +163,36 @@ public class ProductServiceImpl implements ProductService {
 
     }
 
+    @Override
+    @Transactional
+    public void saveProduct(Product product) throws ServiceException {
+
+        try {
+
+            productDao.saveProduct(product);
+
+        } catch (DaoException e) {
+
+            throw new ServiceException(ErrorMessageConstantsService.CONSTANTS_ERROR_MESSAGE_SAVE_PRODUCT_FEATURED, e);
+
+        }
+
+    }
+
+    @Override
+    @Transactional
+    public void updateStatusProduct(int idProduct) throws ServiceException {
+
+        try {
+
+            productDao.updateStatusProduct(idProduct);
+
+        } catch (DaoException e) {
+
+            throw new ServiceException(ErrorMessageConstantsService.CONSTANTS_ERROR_MESSAGE_UPDATE_STATUS_PRODUCT, e);
+
+        }
+
+    }
+
 }

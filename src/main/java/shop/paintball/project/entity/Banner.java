@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import shop.paintball.project.entity.constant.HibernateConstants;
 
 import java.time.LocalDate;
 
@@ -12,28 +11,28 @@ import java.time.LocalDate;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = HibernateConstants.CONSTANTS_TABLE_BANNERS)
+@Table(name = "banners")
 public class Banner {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = HibernateConstants.CONSTANTS_COLUMN_ID_BANNER)
+    @Column(name = "id_banner")
     private int idBanner;
 
-    @Column(name = HibernateConstants.CONSTANTS_COLUMN_TITLE)
+    @Column(name = "title")
     private String title;
 
-    @Column(name = HibernateConstants.CONSTANTS_COLUMN_IMAGE)
+    @Column(name = "image")
     private String image;
 
-    @Column(name = HibernateConstants.CONSTANTS_COLUMN_DATE_POST)
+    @Column(name = "date_post")
     private LocalDate datePost;
 
-    @Column(name = HibernateConstants.CONSTANTS_COLUMN_STATUS)
+    @Column(name = "status")
     private String status;
 
     @ManyToOne
-    @JoinColumn(name = HibernateConstants.CONSTANTS_COLUMN_ID_ADMIN)
+    @JoinColumn(name = "id_admin")
     private User user;
 
 }

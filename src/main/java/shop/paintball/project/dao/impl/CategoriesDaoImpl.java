@@ -73,4 +73,23 @@ public class CategoriesDaoImpl implements CategoriesDao {
 
     }
 
+    @Override
+    public void updateStatusCategories(int idCategories) throws DaoException {
+
+        try {
+
+            Categories categories = getCurrentSession().get(Categories.class, idCategories);
+
+            categories.setStatus(ParameterConstantsDao.CONSTANTS_PARAMETER_INACTIVE);
+
+            getCurrentSession().update(categories);
+
+        } catch (Exception e) {
+
+            throw new DaoException(ErrorMessageConstantsDao.CONSTANTS_ERROR_MESSAGE_UPDATE_STATUS_CATEGORIES, e);
+
+        }
+
+    }
+
 }

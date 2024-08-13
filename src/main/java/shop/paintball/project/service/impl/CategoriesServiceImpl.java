@@ -64,6 +64,22 @@ public class CategoriesServiceImpl implements CategoriesService {
 
     @Override
     @Transactional
+    public Categories findingCategories(int idCategories) throws ServiceException {
+
+        try {
+
+            return categoriesDao.getCategoryById(idCategories);
+
+        } catch (DaoException e) {
+
+            throw new ServiceException(ErrorMessageConstantsService.CONSTANTS_ERROR_MESSAGE_FIND_CATEGORIES_ID, e);
+
+        }
+
+    }
+
+    @Override
+    @Transactional
     public void saveCategories(Categories categories) throws ServiceException {
 
         try {
@@ -73,6 +89,22 @@ public class CategoriesServiceImpl implements CategoriesService {
         } catch (DaoException e) {
 
             throw new ServiceException(ErrorMessageConstantsService.CONSTANTS_ERROR_MESSAGE_SAVE_CATEGORIES, e);
+
+        }
+
+    }
+
+    @Override
+    @Transactional
+    public void updateStatusCategories(int idCategories) throws ServiceException {
+
+        try {
+
+            categoriesDao.updateStatusCategories(idCategories);
+
+        } catch (DaoException e) {
+
+            throw new ServiceException(ErrorMessageConstantsService.CONSTANTS_ERROR_MESSAGE_UPDATE_STATUS_CATEGORIES, e);
 
         }
 

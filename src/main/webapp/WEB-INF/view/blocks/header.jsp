@@ -48,10 +48,11 @@
                                 <li><a href="${pageContext.request.contextPath}/showBasketPage"><spring:message code="header.text.basket" /></a></li>
                                 <li><a href="${pageContext.request.contextPath}/showPurchaseHistory"><spring:message code="header.text.purchase.history" /></a></li>
 
-                                <sec:authorize access="hasRole('ADMIN')">
+                                <sec:authorize access="hasRole('ADMIN') or hasRole('MANAGER')">
 
                                     <li><a href="${pageContext.request.contextPath}/showOrderProcessing"><spring:message code="header.text.order.processing" /></a></li>
                                     <li><a href="${pageContext.request.contextPath}/showOrderSending"><spring:message code="header.text.order.sending" /></a></li>
+                                    <li><a href="${pageContext.request.contextPath}/showOrderReady"><spring:message code="header.text.order.ready" /></a></li>
 
                                 </sec:authorize>
 

@@ -23,4 +23,8 @@ public interface ProductDao {
 
     void removeProductFromFeatured(int idUser, int idProduct) throws DaoException;
 
+    void saveProduct(Product product) throws DaoException;
+
+    void updateStatusProduct(int idProduct) throws DaoException;
+
 }

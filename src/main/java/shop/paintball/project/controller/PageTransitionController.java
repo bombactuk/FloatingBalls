@@ -69,14 +69,14 @@ public class PageTransitionController {
     }
 
     @RequestMapping("/showAuthorizationPage")
-    public String authorizationPage(Model theModel) {
+    public String showAuthorizationPage(Model theModel) {
 
         return EndpointConstants.CONSTANTS_PAGE_AUTHORIZATION;
 
     }
 
     @RequestMapping("/showRegistrationPage")
-    public String registrationPage(Model theModel) {
+    public String showRegistrationPage(Model theModel) {
 
         theModel.addAttribute(EntityConstants.CONSTANTS_ENTITY_USER, new User());
 
@@ -85,7 +85,7 @@ public class PageTransitionController {
     }
 
     @RequestMapping("/showAboutUsPage")
-    public String aboutUsPage(Model theModel) {
+    public String showAboutUsPage(Model theModel) {
 
         try {
 
@@ -102,7 +102,7 @@ public class PageTransitionController {
     }
 
     @RequestMapping("/showMainPage")
-    public String mainPage(@AuthenticationPrincipal CustomUserDetails userDetails, Model theModel) {
+    public String showMainPage(@AuthenticationPrincipal CustomUserDetails userDetails, Model theModel) {
 
         try {
 
@@ -120,9 +120,9 @@ public class PageTransitionController {
     }
 
     @RequestMapping("/showCatalogPage")
-    public String catalogPage(@RequestParam(value = EntityConstants.CONSTANTS_ENTITY_MESSAGE, required = false)
-                              String message,
-                              Model theModel) {
+    public String showCatalogPage(@RequestParam(value = EntityConstants.CONSTANTS_ENTITY_MESSAGE, required = false)
+                                  String message,
+                                  Model theModel) {
 
         try {
 
@@ -143,14 +143,17 @@ public class PageTransitionController {
     }
 
     @RequestMapping("/showProductListPage")
-    public String productListPage(@RequestParam(EntityConstants.CONSTANTS_ENTITY_CATEGORIES_ID) int idCategories,
-                                  Model theModel) {
+    public String showProductListPage(@RequestParam(EntityConstants.CONSTANTS_ENTITY_CATEGORIES_ID) int idCategories,
+                                      @RequestParam(value = EntityConstants.CONSTANTS_ENTITY_MESSAGE, required = false)
+                                      String message, Model theModel) {
 
         try {
 
             theModel.addAttribute(EntityConstants.CONSTANTS_ENTITY_PRODUCTS,
                     productService.listOfProductsByCategory(idCategories));
             theModel.addAttribute(EntityConstants.CONSTANTS_ENTITY_CATEGORIES_ID, idCategories);
+            theModel.addAttribute(EntityConstants.CONSTANTS_ENTITY_PRODUCT, new Product());
+            theModel.addAttribute(MessagePropertiesConstants.CONSTANTS_MESSAGE_SUCCESSFUL, message);
 
             return EndpointConstants.CONSTANTS_PAGE_PRODUCT_LIST;
 
@@ -163,11 +166,11 @@ public class PageTransitionController {
     }
 
     @RequestMapping("/showProductInfoPage")
-    public String productInfoPage(@AuthenticationPrincipal CustomUserDetails userDetails,
-                                  @RequestParam(EntityConstants.CONSTANTS_ENTITY_PRODUCTS_ID) int idProduct,
-                                  @RequestParam(value = EntityConstants.CONSTANTS_ENTITY_MESSAGE, required = false)
-                                  String message,
-                                  Model theModel) {
+    public String showProductInfoPage(@AuthenticationPrincipal CustomUserDetails userDetails,
+                                      @RequestParam(EntityConstants.CONSTANTS_ENTITY_PRODUCTS_ID) int idProduct,
+                                      @RequestParam(value = EntityConstants.CONSTANTS_ENTITY_MESSAGE, required = false)
+                                      String message,
+                                      Model theModel) {
 
         try {
 
@@ -293,19 +296,6 @@ public class PageTransitionController {
 
     }
 
-    @RequestMapping("/processPayment")
-    public String processPayment(HttpSession session, Locale locale) {
-
-        session.removeAttribute(EntityConstants.CONSTANTS_ENTITY_BASKET);
-
-        String message = messageSource.getMessage(MessagePropertiesConstants.CONSTANTS_MESSAGE_ORDER_SUCCESSFUL,
-                null, locale);
-
-        return EndpointConstants.CONSTANTS_REDIRECT_BASKET +
-                "?message=" + URLEncoder.encode(message, StandardCharsets.UTF_8);
-
-    }
-
     @RequestMapping("/showPurchaseHistory")
     public String showPurchaseHistory(@AuthenticationPrincipal CustomUserDetails userDetails, Model theModel) {
 
@@ -322,46 +312,6 @@ public class PageTransitionController {
         } catch (ServiceException e) {
 
             throw new ControllerException(ErrorMessageConstantsController.CONSTANTS_ERROR_MESSAGE_ALL_ORDER, e);
-
-        }
-
-    }
-
-    @RequestMapping("/addReview")
-    public String addReview(@AuthenticationPrincipal CustomUserDetails userDetails,
-                            @RequestParam(EntityConstants.CONSTANTS_ENTITY_PRODUCTS_ID) int idProduct,
-                            @Valid @ModelAttribute(EntityConstants.CONSTANTS_ENTITY_ADD_REVIEWS) Reviews reviews,
-                            BindingResult theBindingResult, Model theModel, Locale locale) {
-
-        try {
-
-            String message;
-
-            if (theBindingResult.hasErrors()) {
-
-                message = messageSource.getMessage(MessagePropertiesConstants.CONSTANTS_MESSAGE_ERROR_SAVE_REVIEWS,
-                        null, locale);
-
-                return EndpointConstants.CONSTANTS_REDIRECT_PRODUCT_INFO + "?idProduct=" + idProduct +
-                        "&message=" + URLEncoder.encode(message, StandardCharsets.UTF_8);
-
-            }
-
-            reviews.setUser(userDetails.getUser());
-            reviews.setDatePost(LocalDate.now());
-            reviews.setProduct(productService.displayingProductInformation(idProduct));
-
-            reviewsService.saveReviews(reviews);
-
-            message = messageSource.getMessage(MessagePropertiesConstants.CONSTANTS_MESSAGE_SAVE_REVIEWS,
-                    null, locale);
-
-            return EndpointConstants.CONSTANTS_REDIRECT_PRODUCT_INFO + "?idProduct=" + idProduct +
-                    "&message=" + URLEncoder.encode(message, StandardCharsets.UTF_8);
-
-        } catch (ServiceException e) {
-
-            throw new ControllerException(ErrorMessageConstantsController.CONSTANTS_ERROR_MESSAGE_SAVE_REVIEWS, e);
 
         }
 

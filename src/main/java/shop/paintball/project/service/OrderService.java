@@ -17,6 +17,10 @@ public interface OrderService {
 
     List<Order> outputOfOrdersForSending() throws ServiceException;
 
+    List<Order> outputOfOrdersForReady() throws ServiceException;
+
+    List<Order> searchOrderReadyList(String query) throws ServiceException;
+
     Order findOrder(int idOrder) throws ServiceException;
 
     void saveOrderShipping(OrderShipping orderShipping) throws ServiceException;

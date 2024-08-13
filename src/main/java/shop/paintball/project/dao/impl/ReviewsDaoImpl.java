@@ -49,9 +49,26 @@ public class ReviewsDaoImpl implements ReviewsDao {
 
             getCurrentSession().save(reviews);
 
-        }catch (Exception e){
+        } catch (Exception e) {
 
             throw new DaoException(ErrorMessageConstantsDao.CONSTANTS_ERROR_MESSAGE_SAVE_REVIEWS, e);
+
+        }
+
+    }
+
+    @Override
+    public void deleteReviews(int idReviews) throws DaoException {
+
+        try {
+
+            Reviews reviews = getCurrentSession().get(Reviews.class, idReviews);
+
+            getCurrentSession().delete(reviews);
+
+        } catch (Exception e) {
+
+            throw new DaoException(ErrorMessageConstantsDao.CONSTANTS_ERROR_MESSAGE_DELETE_REVIEWS, e);
 
         }
 

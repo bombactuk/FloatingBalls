@@ -19,6 +19,7 @@ public final class EntityConstants {
     public static final String CONSTANTS_ENTITY_CATEGORIES = "categories";
     public static final String CONSTANTS_ENTITY_ADD_CATEGORIES = "addCategories";
     public static final String CONSTANTS_ENTITY_CATEGORIES_ID = "idCategories";
+    public static final String CONSTANTS_ENTITY_REVIEWS_ID = "idReviews";
     public static final String CONSTANTS_ENTITY_CATEGORIES_ACTIVE = "active";
 
     public static final String CONSTANTS_ENTITY_CATEGORIES_SORT_BY = "sortBy";
@@ -33,10 +34,11 @@ public final class EntityConstants {
     public static final String CONSTANTS_ENTITY_BASKET = "basket";
     public static final String CONSTANTS_ENTITY_BASKET_SUM = "sumPriceProduct";
 
-    public static final String CONSTANTS_ENTITY_ORDER_STATUS = "treatment";
+    public static final String CONSTANTS_ENTITY_ORDER_STATUS = "Обработка";
     public static final String CONSTANTS_ENTITY_ORDER = "order";
     public static final String CONSTANTS_ENTITY_ORDERS = "orders";
     public static final String CONSTANTS_ENTITY_PROCESSING_ORDER = "processingOrder";
+    public static final String CONSTANTS_ENTITY_TRACKING_INDEX_ORDER = "trackingIndex";
     public static final String CONSTANTS_ENTITY_ORDER_ID = "idOrder";
     public static final String CONSTANTS_ENTITY_ORDER_STATUS_GETTING = "Готовится к отправке";
 

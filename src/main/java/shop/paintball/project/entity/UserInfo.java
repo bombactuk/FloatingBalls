@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import shop.paintball.project.entity.constant.HibernateConstants;
 import shop.paintball.project.entity.constant.ValidationMessageConstants;
 
 import java.time.LocalDate;
@@ -12,30 +11,30 @@ import java.time.LocalDate;
 @Entity
 @Data
 @NoArgsConstructor
-@Table(name = HibernateConstants.CONSTANTS_TABLE_INFO_USERS)
+@Table(name = "info_users")
 public class UserInfo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = HibernateConstants.CONSTANTS_COLUMN_ID_INFO_USER)
+    @Column(name = "id_info_user")
     private int idInfoUser;
 
     @NotNull(message = ValidationMessageConstants.CONSTANTS_MESSAGE_101)
     @Size(min = 3, max = 15, message = ValidationMessageConstants.CONSTANTS_MESSAGE_104)
-    @Column(name = HibernateConstants.CONSTANTS_COLUMN_NAME)
+    @Column(name = "name")
     private String name;
 
     @NotNull(message = ValidationMessageConstants.CONSTANTS_MESSAGE_101)
-    @Column(name = HibernateConstants.CONSTANTS_COLUMN_BIRTHDAY)
+    @Column(name = "birthday")
     private LocalDate birthday;
 
 
     @NotNull(message = ValidationMessageConstants.CONSTANTS_MESSAGE_101)
     @Size(min = 6, max = 15, message = ValidationMessageConstants.CONSTANTS_MESSAGE_105)
-    @Column(name = HibernateConstants.CONSTANTS_COLUMN_TELEPHONE)
+    @Column(name = "telephone")
     private String telephone;
 
-    @OneToOne(mappedBy = HibernateConstants.CONSTANTS_MAPPED_BY_INFO_USER)
+    @OneToOne(mappedBy = "infoUser")
     private User user;
 
 }

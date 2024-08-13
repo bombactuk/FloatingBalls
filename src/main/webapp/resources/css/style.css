@@ -378,8 +378,8 @@ header nav ul li button:hover {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow-y: auto;
-    max-height: 73vh
-
+    margin-top: 150px;
+    max-height: 600px;
 }
 
 .about-container h1 {
@@ -617,7 +617,9 @@ header nav ul li button:hover {
     width: 80%;
     margin: 0 auto;
     padding: 20px;
-    margin-top: 125px;
+    overflow-y: auto;
+    margin-top: 100px;
+    max-height: 600px;
 }
 
 .categories-block {
@@ -707,6 +709,9 @@ header nav ul li button:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     border: 1px solid #ddd;
+    overflow-y: auto;
+    margin-top: 100px;
+    max-height: 600px;
 }
 
 .product-list-container h1{
@@ -719,6 +724,27 @@ header nav ul li button:hover {
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
+}
+
+.product-list-admin-function{
+    margin: 10px;
+}
+
+.product-list-button {
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none !important;
+    text-align: center;
+}
+
+.product-list-button:hover {
+    background-color: white;
+    color: black;
 }
 
 .product-card {
@@ -740,7 +766,7 @@ header nav ul li button:hover {
     max-width: 100%;
     height: auto;
     border-radius: 8px;
-        pointer-events: none;
+    pointer-events: none;
 }
 
 .product-list-info {
@@ -749,7 +775,7 @@ header nav ul li button:hover {
 
 .product-title {
     font-size: 18px;
-    margin: 10px 0;
+    margin: 10px;
 }
 
 .product-description {
@@ -877,7 +903,9 @@ header nav ul li button:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     color: white;
     padding: 20px;
-    margin-top: 700px;
+    overflow-y: auto;
+    margin-top: 1000px;
+    max-height: 800px;
 }
 
 .product-image-container {
@@ -949,7 +977,7 @@ header nav ul li button:hover {
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    text-decoration: none;
+    text-decoration: none !important;
     text-align: center;
 }
 
@@ -1163,6 +1191,8 @@ header nav ul li button:hover {
     border-radius: 8px;
     border: 1px solid #ddd;
     margin-top: 150px;
+    overflow-y: auto;
+    max-height: 800px;
 }
 
 .product-feature-container h1{
@@ -1216,14 +1246,14 @@ header nav ul li button:hover {
 }
 
 .product-feature-link {
-    text-decoration: none;
-    color: inherit;
-    display: block;
+    text-decoration: none !important;
+    color: inherit !important;
+    display: block !important;
 }
 
 .product-feature-button {
     color: white;
-    text-decoration: none;
+    text-decoration: none !important;
     font-size: 16px;
     margin-left: 20px;
     border: 1px solid black;
@@ -1247,7 +1277,9 @@ header nav ul li button:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     border: 1px solid #ddd;
-    margin-top: 500px;
+    margin-top: 350px;
+    overflow-y: auto;
+    max-height: 800px;
 }
 
 .product-basket-container h1{
@@ -1290,7 +1322,7 @@ header nav ul li button:hover {
     max-width: 100%;
     height: auto;
     border-radius: 8px;
-        pointer-events: none;
+    pointer-events: none;
 }
 
 .product-basket-info {
@@ -1300,6 +1332,7 @@ header nav ul li button:hover {
 .product-basket-title {
     font-size: 18px;
     margin: 10px 0;
+    color: black;
 }
 
 .product-basket-price {
@@ -1310,14 +1343,14 @@ header nav ul li button:hover {
 }
 
 .product-basket-link {
-    text-decoration: none;
-    color: inherit;
-    display: block;
+    text-decoration: none !important;
+    color: inherit !important;
+    display: block !important;
 }
 
 .product-basket-button {
     color: white;
-    text-decoration: none;
+    text-decoration: none !important;
     font-size: 16px;
     margin-left: 20px;
     border: 1px solid black;
@@ -1428,7 +1461,9 @@ header nav ul li button:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     border: 1px solid #ddd;
-    margin-top: 260px;
+    margin-top: 150px;
+    max-height: 600px;
+    overflow: auto;
 }
 
 .order-header {
@@ -1488,7 +1523,9 @@ header nav ul li button:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     border: 1px solid #ddd;
-    margin-top: 400px;
+    margin-top: 150px;
+    max-height: 600px;
+    overflow: auto;
 }
 
 .order-header-processing {
@@ -1538,7 +1575,7 @@ header nav ul li button:hover {
     border-bottom: none;
 }
 
-/* Стиль для страницы отправка товара */
+/* Стиль для страницы отправка заказа */
 
 .order-container-sending {
     width: 80%;
@@ -1548,7 +1585,9 @@ header nav ul li button:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     border: 1px solid #ddd;
-    margin-top: 400px;
+    margin-top: 150px;
+    max-height: 600px;
+    overflow: auto;
 }
 
 .order-header-sending {
@@ -1596,4 +1635,107 @@ header nav ul li button:hover {
 
 .order-card-sending ul li:last-child {
     border-bottom: none;
+}
+
+/* Стиль для страницы готовые заказы */
+
+.order-container-ready {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(60, 60, 60, 0.8);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-top: 150px;
+    max-height: 600px;
+    overflow: auto;
+}
+
+.order-header-ready {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.order-cards-ready {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.order-card-ready {
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    min-width: 200px;
+}
+
+.order-card-ready h2 {
+    margin-top: 0;
+    color: #007bff;
+}
+
+.order-card-ready p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.order-card-ready ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.order-card-ready ul li {
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.order-card-ready ul li:last-child {
+    border-bottom: none;
+}
+
+.search-panel-ready-order {
+    margin-bottom: 20px;
+}
+
+.search-panel-ready-order input {
+    padding: 5px 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-panel-ready-order form {
+    display: flex;
+    align-items: center;
+    background-color: rgba(60, 60, 60, 0.8);
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: white;
+}
+
+.search-panel-ready-order label {
+    margin-right: 10px;
+    font-weight: bold;
+    color: white;
+}
+
+.search-panel-ready-order button {
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: #fff;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.search-panel-ready-order button:hover {
+    background-color: white;
+    color: black;
 }

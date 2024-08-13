@@ -9,6 +9,8 @@ public final class ErrorMessageConstantsService {
             " all banners";
     public static final String CONSTANTS_ERROR_MESSAGE_ALL_CATEGORIES = "Error at the service level when receiving" +
             " all categories";
+    public static final String CONSTANTS_ERROR_MESSAGE_FIND_CATEGORIES_ID = "Error at the service level " +
+            "when getting the id category";
     public static final String CONSTANTS_ERROR_MESSAGE_CATEGORIES_NUMBER_OF_PRODUCTS = "Error at the service level " +
             "when getting the number of products by category";
     public static final String CONSTANTS_ERROR_MESSAGE_ALL_PRODUCTS = "Error at the service level when receiving" +
@@ -25,6 +27,8 @@ public final class ErrorMessageConstantsService {
             "when receiving comments on a product";
     public static final String CONSTANTS_ERROR_MESSAGE_SAVE_REVIEWS = "Error at the service level " +
             "when save comments on a product";
+    public static final String CONSTANTS_ERROR_MESSAGE_DELETE_REVIEWS = "Error at the service level " +
+            "when delete comments on a product";
     public static final String CONSTANTS_ERROR_MESSAGE_ALL_SHOPS = "Error at the service level " +
             "when receiving all shops";
     public static final String CONSTANTS_ERROR_MESSAGE_ALL_SOCIAL_MEDIA = "Error at the service level " +
@@ -42,6 +46,10 @@ public final class ErrorMessageConstantsService {
             "when all products featured";
     public static final String CONSTANTS_ERROR_MESSAGE_REMOVE_PRODUCT_FEATURED = "Error at the service level " +
             "when remove product featured";
+    public static final String CONSTANTS_ERROR_MESSAGE_SAVE_PRODUCT_FEATURED = "Error at the service level " +
+            "when save product featured";
+    public static final String CONSTANTS_ERROR_MESSAGE_UPDATE_STATUS_PRODUCT = "Error at the service level " +
+            "when update status product";
     public static final String CONSTANTS_ERROR_MESSAGE_SAVE_ORDER = "Error at the service level " +
             "when save order";
     public static final String CONSTANTS_ERROR_MESSAGE_ALL_ORDER = "Error at the service level " +
@@ -50,6 +58,10 @@ public final class ErrorMessageConstantsService {
             "when all order for processing";
     public static final String CONSTANTS_ERROR_MESSAGE_ALL_ORDER_FOR_SENDING = "Error at the service level " +
             "when all order for sending";
+    public static final String CONSTANTS_ERROR_MESSAGE_ALL_ORDER_FOR_READY = "Error at the service level " +
+            "when all order for ready";
+    public static final String CONSTANTS_ERROR_MESSAGE_SEARCH_ORDER_READY = "Error at the service level" +
+            " when receiving a order for ready search";
     public static final String CONSTANTS_ERROR_MESSAGE_SAVE_CATEGORIES = "Error at the service level " +
             "when save categories";
     public static final String CONSTANTS_ERROR_MESSAGE_SAVE_ORDER_SHIPPING = "Error at the service level " +
@@ -60,5 +72,7 @@ public final class ErrorMessageConstantsService {
             "when update order for status";
     public static final String CONSTANTS_ERROR_MESSAGE_SAVE_ORDER_SENDING = "Error at the service level " +
             "when save order sending";
+    public static final String CONSTANTS_ERROR_MESSAGE_UPDATE_STATUS_CATEGORIES = "Error at the service level " +
+            "when update status categories";
 
 }

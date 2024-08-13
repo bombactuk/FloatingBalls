@@ -35,13 +35,25 @@ public final class ErrorMessageConstantsController {
             "when save order";
     public static final String CONSTANTS_ERROR_MESSAGE_ALL_ORDER = "Error at controller level " +
             "when all order";
+    public static final String CONSTANTS_ERROR_MESSAGE_SEARCH_ORDER_READY = "Error at controller level" +
+            " when loading order for ready search";
     public static final String CONSTANTS_ERROR_MESSAGE_ALL_ORDER_FOR_PROCESSING = "Error at controller level " +
             "when all order for processing";
+    public static final String CONSTANTS_ERROR_MESSAGE_ALL_ORDER_FOR_READY = "Error at controller level " +
+            "when all order for ready";
     public static final String CONSTANTS_ERROR_MESSAGE_SAVE_REVIEWS = "Error at controller level " +
             "when save reviews";
     public static final String CONSTANTS_ERROR_MESSAGE_ADD_CATEGORIES = "Error at controller level " +
             "when add categories";
     public static final String CONSTANTS_ERROR_MESSAGE_SAVE_ORDER_SHIPPING = "Error at controller level " +
             "when save order shipping";
+    public static final String CONSTANTS_ERROR_MESSAGE_DELETE_CATEGORIES = "Error at controller level" +
+            " when loading delete categories";
+    public static final String CONSTANTS_ERROR_MESSAGE_SAVE_PRODUCT = "Error at controller level" +
+            " when loading save product";
+    public static final String CONSTANTS_ERROR_MESSAGE_DELETE_PRODUCT = "Error at controller level" +
+            " when loading delete product";
+    public static final String CONSTANTS_ERROR_MESSAGE_DELETE_REVIEWS = "Error at controller level" +
+            " when loading delete reviews";
 
 }

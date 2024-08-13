@@ -18,6 +18,10 @@ public interface OrderDao {
 
     List<Order> outputOfOrdersForSending() throws DaoException;
 
+    List<Order> outputOfOrdersForReady() throws DaoException;
+
+    List<Order> searchOrderReadyList(String query) throws DaoException;
+
     Order findOrder(int idOrder) throws DaoException;
 
     void saveOrderShipping(OrderShipping orderShipping) throws DaoException;

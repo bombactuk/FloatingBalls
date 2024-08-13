@@ -105,6 +105,50 @@ public class OrderDaoImpl implements OrderDao {
 
     }
 
+    private static final String HQL_OUTPUT_OF_ALL_ORDER_FOR_READY = "SELECT DISTINCT o FROM Order o " +
+            "JOIN FETCH o.products p " +
+            "LEFT JOIN FETCH o.orderShippings " +
+            "WHERE o.status = :status";
+
+    @Override
+    public List<Order> outputOfOrdersForReady() throws DaoException {
+
+        try {
+
+            return getCurrentSession().createQuery(HQL_OUTPUT_OF_ALL_ORDER_FOR_READY, Order.class)
+                    .setParameter(ParameterConstantsDao.CONSTANTS_PARAMETER_STATUS,
+                            ParameterConstantsDao.CONSTANTS_PARAMETER_SENT)
+                    .list();
+
+        } catch (Exception e) {
+
+            throw new DaoException(ErrorMessageConstantsDao.CONSTANTS_ERROR_MESSAGE_ALL_ORDER_FOR_READY, e);
+
+        }
+
+    }
+
+    private static final String HQL_OUTPUT_SEARCH_ORDER_READE = "FROM Order o " +
+            "JOIN FETCH o.products p " +
+            "LEFT JOIN FETCH o.orderShippings" +
+            " WHERE o.idOrder LIKE :idOrder";
+
+    @Override
+    public List<Order> searchOrderReadyList(String query) throws DaoException {
+
+        try {
+
+            return getCurrentSession().createQuery(HQL_OUTPUT_SEARCH_ORDER_READE, Order.class)
+                    .setParameter(ParameterConstantsDao.CONSTANTS_PARAMETER_ID_ORDER, Integer.parseInt(query)).list();
+
+        } catch (Exception e) {
+
+            throw new DaoException(ErrorMessageConstantsDao.CONSTANTS_ERROR_MESSAGE_SEARCH_ORDER_READY, e);
+
+        }
+
+    }
+
     @Override
     public Order findOrder(int idOrder) throws DaoException {
 

@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import shop.paintball.project.entity.constant.HibernateConstants;
 import shop.paintball.project.entity.constant.ValidationMessageConstants;
 
 import java.time.LocalDate;
@@ -20,48 +19,48 @@ import java.util.Set;
 @NoArgsConstructor
 @ToString(exclude = {"orderShippings"})
 @EqualsAndHashCode(exclude = {"orderShippings"})
-@Table(name = HibernateConstants.CONSTANTS_TABLE_ORDER)
+@Table(name = "orders")
 public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = HibernateConstants.CONSTANTS_COLUMN_ID_ORDER)
+    @Column(name = "id_order")
     private int idOrder;
 
     @NotNull(message = ValidationMessageConstants.CONSTANTS_MESSAGE_101)
-    @Column(name = HibernateConstants.CONSTANTS_COLUMN_NAME)
+    @Column(name = "name")
     private String name;
 
     @NotNull(message = ValidationMessageConstants.CONSTANTS_MESSAGE_101)
-    @Column(name = HibernateConstants.CONSTANTS_COLUMN_SURNAME)
+    @Column(name = "surname")
     private String surname;
 
     @NotNull(message = ValidationMessageConstants.CONSTANTS_MESSAGE_101)
-    @Column(name = HibernateConstants.CONSTANTS_COLUMN_TELEPHONE)
+    @Column(name = "telephone")
     private String telephone;
 
-    @Column(name = HibernateConstants.CONSTANTS_COLUMN_STATUS)
+    @Column(name = "status")
     private String status;
 
-    @Column(name = HibernateConstants.CONSTANTS_COLUMN_DATE_POST)
+    @Column(name = "date_post")
     private LocalDate datePost;
 
-    @Column(name = HibernateConstants.CONSTANTS_COLUMN_TRACKING_INDEX)
+    @Column(name = "tracking_index")
     private String trackingIndex;
 
     @ManyToOne
-    @JoinColumn(name = HibernateConstants.CONSTANTS_COLUMN_ID_USER)
+    @JoinColumn(name = "id_user")
     private User user;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
-            name = HibernateConstants.CONSTANTS_TABLE_ORDER_PRODUCTS,
-            joinColumns = @JoinColumn(name = HibernateConstants.CONSTANTS_COLUMN_ID_ORDER),
-            inverseJoinColumns = @JoinColumn(name = HibernateConstants.CONSTANTS_COLUMN_ID_PRODUCT)
+            name = "orders_products",
+            joinColumns = @JoinColumn(name = "id_order"),
+            inverseJoinColumns = @JoinColumn(name = "id_product")
     )
     private List<Product> products = new ArrayList<>();
 
-    @OneToMany(mappedBy = HibernateConstants.CONSTANTS_MAPPED_BY_ORDER, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<OrderShipping> orderShippings = new HashSet<>();
 
 }

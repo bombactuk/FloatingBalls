@@ -27,7 +27,7 @@ public class ProductDaoImpl implements ProductDao {
     }
 
     private static final String HQL_OUTPUT_OF_ALL_PRODUCTS_AND_IMAGE = "FROM Product p LEFT JOIN FETCH p.images" +
-            " WHERE p.categories.idCategories = :idCategories";
+            " WHERE p.categories.idCategories = :idCategories AND p.status = :status";
 
     @Override
     public List<Product> listOfProductsByCategory(int idCategory) throws DaoException {
@@ -37,6 +37,8 @@ public class ProductDaoImpl implements ProductDao {
             return getCurrentSession()
                     .createQuery(HQL_OUTPUT_OF_ALL_PRODUCTS_AND_IMAGE, Product.class)
                     .setParameter(ParameterConstantsDao.CONSTANTS_PARAMETER_ID_CATEGORIES, idCategory)
+                    .setParameter(ParameterConstantsDao.CONSTANTS_PARAMETER_STATUS,
+                            ParameterConstantsDao.CONSTANTS_PARAMETER_ACTIVE)
                     .list();
 
         } catch (Exception e) {
@@ -169,6 +171,40 @@ public class ProductDaoImpl implements ProductDao {
         } catch (Exception e) {
 
             throw new DaoException(ErrorMessageConstantsDao.CONSTANTS_ERROR_MESSAGE_REMOVE_PRODUCT_FEATURED, e);
+
+        }
+
+    }
+
+    @Override
+    public void saveProduct(Product product) throws DaoException {
+
+        try {
+
+            getCurrentSession().save(product);
+
+        } catch (Exception e) {
+
+            throw new DaoException(ErrorMessageConstantsDao.CONSTANTS_ERROR_MESSAGE_SAVE_PRODUCT_FEATURED, e);
+
+        }
+
+    }
+
+    @Override
+    public void updateStatusProduct(int idProduct) throws DaoException {
+
+        try {
+
+            Product product = getCurrentSession().get(Product.class, idProduct);
+
+            product.setStatus(ParameterConstantsDao.CONSTANTS_PARAMETER_INACTIVE);
+
+            getCurrentSession().update(product);
+
+        } catch (Exception e) {
+
+            throw new DaoException(ErrorMessageConstantsDao.CONSTANTS_ERROR_MESSAGE_UPDATE_STATUS_PRODUCT, e);
 
         }
 

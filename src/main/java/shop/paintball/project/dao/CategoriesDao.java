@@ -13,4 +13,6 @@ public interface CategoriesDao {
 
     void saveCategories(Categories categories) throws DaoException;
 
+    void updateStatusCategories(int idCategories) throws DaoException;
+
 }

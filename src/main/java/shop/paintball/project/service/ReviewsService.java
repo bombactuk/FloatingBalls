@@ -11,4 +11,6 @@ public interface ReviewsService {
 
     void saveReviews(Reviews reviews) throws ServiceException;
 
+    void deleteReviews(int idReviews) throws ServiceException;
+
 }

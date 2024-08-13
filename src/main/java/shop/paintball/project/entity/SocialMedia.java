@@ -3,30 +3,29 @@ package shop.paintball.project.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import shop.paintball.project.entity.constant.HibernateConstants;
 
 @Entity
 @Data
 @NoArgsConstructor
-@Table(name = HibernateConstants.CONSTANTS_TABLE_SOCIAL_MEDIA)
+@Table(name = "social_media")
 public class SocialMedia {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = HibernateConstants.CONSTANTS_COLUMN_ID_SOCIAL_MEDIA)
+    @Column(name = "id_social_media")
     private int idSocialMedia;
 
-    @Column(name = HibernateConstants.CONSTANTS_COLUMN_IMAGE)
+    @Column(name = "image")
     private String image;
 
-    @Column(name = HibernateConstants.CONSTANTS_COLUMN_LINK)
+    @Column(name = "link")
     private String link;
 
-    @Column(name = HibernateConstants.CONSTANTS_COLUMN_STATUS)
+    @Column(name = "status")
     private String status;
 
     @ManyToOne
-    @JoinColumn(name = HibernateConstants.CONSTANTS_COLUMN_ID_ADMIN)
+    @JoinColumn(name = "id_admin")
     private User user;
 
 }

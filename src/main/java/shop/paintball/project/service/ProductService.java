@@ -25,4 +25,8 @@ public interface ProductService {
 
     void removeProductFromFeatured(int idUser, int idProduct) throws ServiceException;
 
+    void saveProduct(Product product) throws ServiceException;
+
+    void updateStatusProduct(int idProduct) throws ServiceException;
+
 }

@@ -6,7 +6,6 @@ import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import shop.paintball.project.entity.constant.HibernateConstants;
 import shop.paintball.project.entity.constant.ValidationMessageConstants;
 
 import java.util.List;
@@ -15,24 +14,24 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = HibernateConstants.CONSTANTS_TABLE_CATEGORIES)
+@Table(name = "categories")
 public class Categories {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = HibernateConstants.CONSTANTS_COLUMN_ID_CATEGORIES)
+    @Column(name = "id_categories")
     private int idCategories;
 
     @NotNull(message = ValidationMessageConstants.CONSTANTS_MESSAGE_101)
     @Size(min = 3, max = 15, message = ValidationMessageConstants.CONSTANTS_MESSAGE_104)
-    @Column(name = HibernateConstants.CONSTANTS_COLUMN_TYPE)
+    @Column(name = "type")
     private String type;
 
     @NotNull(message = ValidationMessageConstants.CONSTANTS_MESSAGE_101)
-    @Column(name = HibernateConstants.CONSTANTS_COLUMN_IMAGE)
+    @Column(name = "image")
     private String image;
 
-    @Column(name = HibernateConstants.CONSTANTS_COLUMN_STATUS)
+    @Column(name = "status")
     private String status;
 
     @OneToMany(mappedBy = "categories", cascade = CascadeType.ALL)

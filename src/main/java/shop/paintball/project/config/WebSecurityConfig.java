@@ -29,8 +29,11 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/resources/**").permitAll()
                         .requestMatchers("/showRegistrationPage", "/showAuthorizationPage", "/registerUser").permitAll()
+                        .requestMatchers("/showOrderSending", "/showOrderProcessing",
+                                "/processingOrder", "/sendingOrder", "/showOrderReady", "/searchOrderReadyList").hasRole("MANAGER")
                         .requestMatchers("/showOrderSending", "/showOrderProcessing", "/addCategories",
-                                "/processingOrder", "/sendingOrder").hasRole("ADMIN")
+                                "/processingOrder", "/sendingOrder", "/showOrderReady", "/searchOrderReadyList",
+                                "/deleteCategories", "/addProduct", "/deleteProduct", "/deleteReviews").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
                 .rememberMe(rememberMe -> rememberMe

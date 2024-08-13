@@ -51,7 +51,7 @@
 
                                 <div class="product-basket-info">
 
-                                    <h2 class="product-basket-title">${product.title}</h2>
+                                    <p class="product-basket-title">${product.title}</p>
                                     <p class="product-basket-price">${product.price} руб.</p>
 
                                 </div>
@@ -70,13 +70,13 @@
 
                 </div>
 
-                <h3>Create Your Order</h3>
+                <h3><spring:message code="basket_page.text.cart.create" /></h3>
 
                 <form:form method="post" action="${pageContext.request.contextPath}/checkoutPage" modelAttribute="order" class="order-form-basket">
 
                     <div class="form-group-basket">
 
-                        <label for="name">Name:</label>
+                        <label for="name"><spring:message code="basket_page.text.cart.name" /></label>
                         <form:input path="name" id="name" class="form-control-basket" />
                         <form:errors path="name" cssClass="error" />
 
@@ -84,7 +84,7 @@
 
                     <div class="form-group-basket">
 
-                        <label for="surname">Surname:</label>
+                        <label for="surname"><spring:message code="basket_page.text.cart.surname" /></label>
                         <form:input path="surname" id="surname" class="form-control-basket" />
                         <form:errors path="surname" cssClass="error" />
 
@@ -92,7 +92,7 @@
 
                     <div class="form-group-basket">
 
-                        <label for="telephone">Phone Number:</label>
+                        <label for="telephone"><spring:message code="basket_page.text.cart.phone" /></label>
                         <form:input path="telephone" id="telephone" class="form-control-basket" />
                         <form:errors path="telephone" cssClass="error" />
 

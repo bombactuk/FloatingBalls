@@ -16,6 +16,7 @@ public final class EndpointConstants {
     public static final String CONSTANTS_PAGE_ERROR = "error_page";
     public static final String CONSTANTS_PAGE_ORDER_PROCESSING = "order_processing";
     public static final String CONSTANTS_PAGE_ORDER_SENDING = "sending_order_page";
+    public static final String CONSTANTS_PAGE_ORDER_READY = "ready_orders_page";
     public static final String CONSTANTS_PAGE_FEATURED_PRODUCTS = "featured_products_page";
     public static final String CONSTANTS_PAGE_BASKET = "basket_page";
     public static final String CONSTANTS_PAGE_CHECKOUT = "checkout_page";
@@ -24,6 +25,7 @@ public final class EndpointConstants {
     public static final String CONSTANTS_REDIRECT_PRODUCT_FEATURED = "redirect:/showProductFeaturedPage";
     public static final String CONSTANTS_REDIRECT_BASKET = "redirect:/showBasketPage";
     public static final String CONSTANTS_REDIRECT_CATEGORIES = "redirect:/showCatalogPage";
+    public static final String CONSTANTS_REDIRECT_PRODUCT_LIST = "redirect:/showProductListPage";
     public static final String CONSTANTS_REDIRECT_ORDER_PROCESSING = "redirect:/showOrderProcessing";
     public static final String CONSTANTS_REDIRECT_ORDER_SENDING = "redirect:/showOrderSending";
 }

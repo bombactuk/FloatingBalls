@@ -4,25 +4,24 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import shop.paintball.project.entity.constant.HibernateConstants;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = HibernateConstants.CONSTANTS_TABLE_IMAGES_PRODUCT)
+@Table(name = "images_product")
 public class ImageProduct {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = HibernateConstants.CONSTANTS_COLUMN_ID_IMAGES_PRODUCT)
+    @Column(name = "id_images_product")
     private int idInfoProduct;
 
-    @Column(name = HibernateConstants.CONSTANTS_COLUMN_LINK)
+    @Column(name = "link")
     private String link;
 
     @ManyToOne
-    @JoinColumn(name = HibernateConstants.CONSTANTS_COLUMN_ID_PRODUCT)
+    @JoinColumn(name = "id_product")
     private Product product;
 
 }

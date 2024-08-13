@@ -87,6 +87,38 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     @Transactional
+    public List<Order> outputOfOrdersForReady() throws ServiceException {
+
+        try {
+
+            return orderDao.outputOfOrdersForReady();
+
+        } catch (DaoException e) {
+
+            throw new ServiceException(ErrorMessageConstantsService.CONSTANTS_ERROR_MESSAGE_ALL_ORDER_FOR_READY, e);
+
+        }
+
+    }
+
+    @Override
+    @Transactional
+    public List<Order> searchOrderReadyList(String query) throws ServiceException {
+
+        try {
+
+            return orderDao.searchOrderReadyList(query);
+
+        } catch (DaoException e) {
+
+            throw new ServiceException(ErrorMessageConstantsService.CONSTANTS_ERROR_MESSAGE_SEARCH_ORDER_READY, e);
+
+        }
+
+    }
+
+    @Override
+    @Transactional
     public Order findOrder(int idOrder) throws ServiceException {
 
         try {

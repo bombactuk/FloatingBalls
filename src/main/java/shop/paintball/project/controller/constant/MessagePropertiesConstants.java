@@ -28,15 +28,19 @@ public final class MessagePropertiesConstants {
 
     public static final String CONSTANTS_MESSAGE_ERROR_SAVE_REVIEWS = "message.error.111";
     public static final String CONSTANTS_MESSAGE_SAVE_REVIEWS = "message.reviews.101";
+    public static final String CONSTANTS_MESSAGE_DELETE_REVIEWS = "message.reviews.102";
 
     public static final String CONSTANTS_MESSAGE_ERROR_SAVE_CATEGORIES = "message.error.112";
     public static final String CONSTANTS_MESSAGE_SAVE_CATEGORIES = "message.categories.101";
-
+    public static final String CONSTANTS_MESSAGE_DELETE_CATEGORIES = "message.categories.102";
     public static final String CONSTANTS_MESSAGE_ERROR_SAVE_ORDER_SHIPPING = "message.error.113";
     public static final String CONSTANTS_MESSAGE_SAVE_ORDER_SHIPPING = "message.order.shipping.101";
 
     public static final String CONSTANTS_MESSAGE_ERROR_SAVE_ORDER_SENDING = "message.error.114";
     public static final String CONSTANTS_MESSAGE_SAVE_ORDER_SENDING = "message.order.sending.101";
 
+    public static final String CONSTANTS_MESSAGE_ERROR_ADD_PRODUCT = "message.error.115";
+    public static final String CONSTANTS_MESSAGE_ADD_PRODUCT = "message.product.add.101";
+    public static final String CONSTANTS_MESSAGE_DELETE_PRODUCT = "message.product.delete.101";
 
 }

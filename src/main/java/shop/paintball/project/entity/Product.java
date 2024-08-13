@@ -2,8 +2,9 @@ package shop.paintball.project.entity;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
-import shop.paintball.project.entity.constant.HibernateConstants;
+import shop.paintball.project.entity.constant.ValidationMessageConstants;
 
 import java.util.*;
 
@@ -13,45 +14,45 @@ import java.util.*;
 @AllArgsConstructor
 @ToString(exclude = {"user", "productInfo", "users", "reviews"})
 @EqualsAndHashCode(exclude = {"user", "productInfo", "users", "reviews"})
-@Table(name = HibernateConstants.CONSTANTS_TABLE_PRODUCTS)
+@Table(name = "products")
 public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = HibernateConstants.CONSTANTS_COLUMN_ID_PRODUCT)
+    @Column(name = "id_product")
     private int idProduct;
 
-    @Column(name = HibernateConstants.CONSTANTS_COLUMN_TITLE)
+    @Column(name = "title")
     private String title;
 
-    @Column(name = HibernateConstants.CONSTANTS_COLUMN_PRICE)
+    @Column(name = "price")
     private int price;
 
-    @Column(name = HibernateConstants.CONSTANTS_COLUMN_STATUS)
+    @Column(name = "status")
     private String status;
 
     @ManyToOne
-    @JoinColumn(name = HibernateConstants.CONSTANTS_COLUMN_ID_ADMIN)
+    @JoinColumn(name = "id_admin")
     private User user;
 
-    @OneToOne
-    @JoinColumn(name = HibernateConstants.CONSTANTS_COLUMN_ID_INFO_PRODUCT)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_info_product")
     private ProductInfo productInfo;
 
     @ManyToOne
-    @JoinColumn(name = HibernateConstants.CONSTANTS_COLUMN_ID_CATEGORIES)
+    @JoinColumn(name = "id_categories")
     private Categories categories;
 
-    @ManyToMany(mappedBy = HibernateConstants.CONSTANTS_MAPPED_BY_FEATURED_PRODUCTS, fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = "featuredProducts", fetch = FetchType.LAZY)
     private Set<User> users = new HashSet<>();
 
-    @OneToMany(mappedBy = HibernateConstants.CONSTANTS_MAPPED_BY_PRODUCT, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     private Set<Reviews> reviews;
 
-    @OneToMany(mappedBy = HibernateConstants.CONSTANTS_MAPPED_BY_PRODUCT, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     private List<ImageProduct> images = new ArrayList<>();
 
-    @ManyToMany(mappedBy = HibernateConstants.CONSTANTS_TABLE_PRODUCTS)
+    @ManyToMany(mappedBy = "products")
     private List<Order> orders = new ArrayList<>();
 
 }

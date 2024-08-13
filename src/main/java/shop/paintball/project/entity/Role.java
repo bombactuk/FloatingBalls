@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import shop.paintball.project.entity.constant.HibernateConstants;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -15,18 +14,18 @@ import java.util.Set;
 @ToString(exclude = "users")
 @EqualsAndHashCode(exclude = "users")
 @NoArgsConstructor
-@Table(name = HibernateConstants.CONSTANTS_TABLE_ROLES)
+@Table(name = "roles")
 public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = HibernateConstants.CONSTANTS_COLUMN_ID_ROLE)
+    @Column(name = "id_role")
     private int idRole;
 
-    @Column(name = HibernateConstants.CONSTANTS_COLUMN_TITLE)
+    @Column(name = "title")
     private String title;
 
-    @ManyToMany(mappedBy = HibernateConstants.CONSTANTS_MAPPED_BY_ROLES, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "roles", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<User> users = new HashSet<>();
 
 }

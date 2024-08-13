@@ -50,4 +50,20 @@ public class ReviewsServiceImpl implements ReviewsService {
 
     }
 
+    @Override
+    @Transactional
+    public void deleteReviews(int idReviews) throws ServiceException {
+
+        try {
+
+            reviewsDao.deleteReviews(idReviews);
+
+        } catch (DaoException e) {
+
+            throw new ServiceException(ErrorMessageConstantsService.CONSTANTS_ERROR_MESSAGE_DELETE_REVIEWS, e);
+
+        }
+
+    }
+
 }

@@ -4,6 +4,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <!DOCTYPE html>
 
@@ -72,6 +73,17 @@
 
                     </a>
 
+                    <sec:authorize access="hasRole('ADMIN')">
+
+                        <a href="${pageContext.request.contextPath}/deleteProduct?idProduct=${product.idProduct}"
+                        class="product-info-button" onclick="return confirm('<spring:message code="product_info_page.delete.message" />');">
+
+                            <spring:message code="product_info_page.delete.product" />
+
+                        </a>
+
+                    </sec:authorize>
+
                 </div>
 
             </div>
@@ -110,6 +122,17 @@
                             </div>
 
                             <p class="review-content">${review.content}</p>
+
+                            <sec:authorize access="hasRole('ADMIN')">
+
+                                <a href="${pageContext.request.contextPath}/deleteReviews?idProduct=${product.idProduct}&idReviews=${review.idReviews}"
+                                class="product-info-button" onclick="return confirm('<spring:message code="product_info_page.delete.message.reviews" />');">
+
+                                    <spring:message code="product_info_page.delete.reviews" />
+
+                                </a>
+
+                            </sec:authorize>
 
                         </div>
 

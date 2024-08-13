@@ -11,4 +11,6 @@ public interface ReviewsDao {
 
     void saveReviews(Reviews reviews) throws DaoException;
 
+    void deleteReviews(int idReviews) throws DaoException;
+
 }

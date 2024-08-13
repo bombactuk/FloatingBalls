@@ -1,30 +1,32 @@
 package shop.paintball.project.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import shop.paintball.project.entity.constant.HibernateConstants;
+import shop.paintball.project.entity.constant.ValidationMessageConstants;
 
 import java.time.LocalDate;
 
 @Entity
 @Data
 @NoArgsConstructor
-@Table(name = HibernateConstants.CONSTANTS_TABLE_INFO_PRODUCTS)
+@Table(name = "info_product")
 public class ProductInfo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = HibernateConstants.CONSTANTS_COLUMN_ID_INFO_PRODUCT)
+    @Column(name = "id_info_product")
     private int idInfoProduct;
 
-    @Column(name = HibernateConstants.CONSTANTS_COLUMN_CONTENT)
+    @NotNull(message = ValidationMessageConstants.CONSTANTS_MESSAGE_101)
+    @Column(name = "content")
     private String content;
 
-    @Column(name = HibernateConstants.CONSTANTS_COLUMN_DATE_POST)
+    @Column(name = "date_post")
     private LocalDate datePost;
 
-    @OneToOne(mappedBy = HibernateConstants.CONSTANTS_MAPPED_BY_PRODUCT_INFO, cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "productInfo", cascade = CascadeType.ALL)
     private Product product;
 
 }

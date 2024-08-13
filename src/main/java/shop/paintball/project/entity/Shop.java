@@ -3,38 +3,37 @@ package shop.paintball.project.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import shop.paintball.project.entity.constant.HibernateConstants;
 
 import java.time.LocalDate;
 
 @Entity
 @Data
 @NoArgsConstructor
-@Table(name = HibernateConstants.CONSTANTS_TABLE_SHOPS)
+@Table(name = "shops")
 public class Shop {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = HibernateConstants.CONSTANTS_COLUMN_ID_SHOP)
+    @Column(name = "id_shop")
     private int idShop;
 
-    @Column(name = HibernateConstants.CONSTANTS_COLUMN_ADDRESS)
+    @Column(name = "address")
     private String address;
 
-    @Column(name = HibernateConstants.CONSTANTS_COLUMN_CONTACTS)
+    @Column(name = "contacts")
     private String contacts;
 
-    @Column(name = HibernateConstants.CONSTANTS_COLUMN_OPERATING)
+    @Column(name = "operating_mode")
     private String operatingMode;
 
-    @Column(name = HibernateConstants.CONSTANTS_COLUMN_DATE_POST)
+    @Column(name = "date_post")
     private LocalDate datePost;
 
-    @Column(name = HibernateConstants.CONSTANTS_COLUMN_STATUS)
+    @Column(name = "status")
     private String status;
 
     @ManyToOne
-    @JoinColumn(name = HibernateConstants.CONSTANTS_COLUMN_ID_ADMIN)
+    @JoinColumn(name = "id_admin")
     private User user;
 
 }
