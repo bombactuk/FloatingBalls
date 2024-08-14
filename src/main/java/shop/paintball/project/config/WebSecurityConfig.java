@@ -31,9 +31,8 @@ public class WebSecurityConfig {
                         .requestMatchers("/showRegistrationPage", "/showAuthorizationPage", "/registerUser").permitAll()
                         .requestMatchers("/showOrderSending", "/showOrderProcessing",
                                 "/processingOrder", "/sendingOrder", "/showOrderReady", "/searchOrderReadyList").hasRole("MANAGER")
-                        .requestMatchers("/showOrderSending", "/showOrderProcessing", "/addCategories",
-                                "/processingOrder", "/sendingOrder", "/showOrderReady", "/searchOrderReadyList",
-                                "/deleteCategories", "/addProduct", "/deleteProduct", "/deleteReviews").hasRole("ADMIN")
+                        .requestMatchers("/addCategories", "/deleteCategories",
+                                "/addProduct", "/deleteProduct", "/deleteReviews").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
                 .rememberMe(rememberMe -> rememberMe
